@@ -1,0 +1,74 @@
+f
+n specific
+*.pyc
+.pytest_cache
+
+# Frontend
+web/frontend/build/
+web/frontend/prod/
+
+## generic files to ignore
+*~
+*.DS_Store
+*.swp
+*.out
+*.codekit
+.vscode/
+node_modules/
+tags
+php/.project
+php/.pydevproject
+php/.settings
+php/calltest.php
+php/emailTest.py
+php/mailme.php
+php/upload2.php
+upload-basti
+web/AssetManagement
+web/asset_main_data.json
+web/settings.py
+web/asset_main_dump.json
+web/.idea/
+web/.coverage
+lost+found/
+.idea
+asset_viewer/.flexProperties
+**/.cache/v/cache/lastfailed
+spam.sublime-project
+spam.sublime-workspace
+
+## local files for users
+local_export_configuration
+.cache
+hs_err_pid*.log
+
+# npm
+node_modules/
+
+# Compass
+.sass-cache
+
+# virtual environments
+.env
+
+# pytest coverage
+.coverage
+htmlcov/
+
+# Hitch directory
+tests/.hitch
+
+# MailHog binary
+mailhog
+
+_site-packages
+webpack-stats-local.json
+sample_data
+web/node_modules
+.eslintrc
+.ignore
+/json_config_docs/
+
+.mypy_cache/
+.dmypy.json
+
