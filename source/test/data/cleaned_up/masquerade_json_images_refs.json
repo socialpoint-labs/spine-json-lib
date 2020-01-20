@@ -1,0 +1,140 @@
+{
+    "masquerade/cloak": {
+        "path": "./images/masquerade/cloak"
+    },
+    "fx_weapon": {
+        "path": "./images/fx_weapon"
+    },
+    "masquerade/finger_r_4": {
+        "path": "./images/masquerade/finger_r_4"
+    },
+    "masquerade/ponytail_1": {
+        "path": "./images/masquerade/ponytail_1"
+    },
+    "masquerade/finger_r_1": {
+        "path": "./images/masquerade/finger_r_1"
+    },
+    "masquerade/finger_r_3": {
+        "path": "./images/masquerade/finger_r_3"
+    },
+    "masquerade/finger_r_2": {
+        "path": "./images/masquerade/finger_r_2"
+    },
+    "masquerade/foot_l": {
+        "path": "./images/masquerade/foot_l"
+    },
+    "masquerade/shoulder_r_2_back": {
+        "path": "./images/masquerade/shoulder_r_2_back"
+    },
+    "masquerade/arm_r": {
+        "path": "./images/masquerade/arm_r"
+    },
+    "masquerade/foot_r": {
+        "path": "./images/masquerade/foot_r"
+    },
+    "masquerade/shoulder_r_2": {
+        "path": "./images/masquerade/shoulder_r_2"
+    },
+    "masquerade/leg_l": {
+        "path": "./images/masquerade/leg_l"
+    },
+    "masquerade/cloak_bell_l": {
+        "path": "./images/masquerade/cloak_bell_l"
+    },
+    "masquerade/shoulder_l_shadow": {
+        "path": "./images/masquerade/shoulder_l_shadow"
+    },
+    "masquerade/head": {
+        "path": "./images/masquerade/head"
+    },
+    "masquerade/mouth": {
+        "path": "./images/masquerade/mouth"
+    },
+    "masquerade/ponytail_2": {
+        "path": "./images/masquerade/ponytail_2"
+    },
+    "masquerade/knot_2": {
+        "path": "./images/masquerade/knot_2"
+    },
+    "masquerade/knot_1": {
+        "path": "./images/masquerade/knot_1"
+    },
+    "masquerade/hips": {
+        "path": "./images/masquerade/hips"
+    },
+    "fx_purple_particle": {
+        "path": "./images/fx_purple_particle"
+    },
+    "masquerade/belt_r": {
+        "path": "./images/masquerade/belt_r"
+    },
+    "masquerade/cloak_bell_r": {
+        "path": "./images/masquerade/cloak_bell_r"
+    },
+    "masquerade/forearm_r": {
+        "path": "./images/masquerade/forearm_r"
+    },
+    "masquerade/palm_r": {
+        "path": "./images/masquerade/palm_r"
+    },
+    "masquerade/chest": {
+        "path": "./images/masquerade/chest"
+    },
+    "masquerade/forearm_l": {
+        "path": "./images/masquerade/forearm_l"
+    },
+    "masquerade/shoulder_l_2": {
+        "path": "./images/masquerade/shoulder_l_2"
+    },
+    "masquerade/shoulder_l_1": {
+        "path": "./images/masquerade/shoulder_l_1"
+    },
+    "masquerade/beard_2": {
+        "path": "./images/masquerade/beard_2"
+    },
+    "masquerade/beard_3": {
+        "path": "./images/masquerade/beard_3"
+    },
+    "masquerade/belt_l": {
+        "path": "./images/masquerade/belt_l"
+    },
+    "masquerade/beard_1": {
+        "path": "./images/masquerade/beard_1"
+    },
+    "masquerade/beard_4": {
+        "path": "./images/masquerade/beard_4"
+    },
+    "masquerade/belt": {
+        "path": "./images/masquerade/belt"
+    },
+    "masquerade/head_shadow": {
+        "path": "./images/masquerade/head_shadow"
+    },
+    "masquerade/stick_up": {
+        "path": "./images/masquerade/stick_up"
+    },
+    "masquerade/stick_down": {
+        "path": "./images/masquerade/stick_down"
+    },
+    "masquerade/leg_r": {
+        "path": "./images/masquerade/leg_r"
+    },
+    "masquerade/mask": {
+        "path": "./images/masquerade/mask"
+    },
+    "masquerade/arm_l_2": {
+        "path": "./images/masquerade/arm_l_2"
+    },
+    "masquerade/arm_l_1": {
+        "path": "./images/masquerade/arm_l_1"
+    },
+    "masquerade/shirt": {
+        "path": "./images/masquerade/shirt"
+    },
+    "masquerade/bell": {
+        "path": "./images/masquerade/bell"
+    },
+    "masquerade/shoulder_r_1_front": {
+        "path": "./images/masquerade/shoulder_r_1_front"
+    }
+}
