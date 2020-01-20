@@ -1,0 +1,17 @@
+{
+    "image_1": {
+        "path": "./images/image_1"
+    }, 
+    "freepik_copy": {
+        "path": "./images/freepik_copy"
+    }, 
+    "unnamed": {
+        "path": "./images/unnamed"
+    }, 
+    "check_image": {
+        "path": "./images/check_image"
+    }, 
+    "freepik": {
+        "path": "./images/freepik"
+    }
+}

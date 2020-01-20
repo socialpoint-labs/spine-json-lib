@@ -1,0 +1,575 @@
+{
+    "hair_1_l2": {
+        "path": "./images/hair_1_l2"
+    },
+    "hair_1_l3": {
+        "path": "./images/hair_1_l3"
+    },
+    "hair_1_l1": {
+        "path": "./images/hair_1_l1"
+    },
+    "shoulder_back_r_l3": {
+        "path": "./images/shoulder_back_r_l3"
+    },
+    "ear_l3": {
+        "path": "./images/ear_l3"
+    },
+    "ear_l2": {
+        "path": "./images/ear_l2"
+    },
+    "arm_l_l2": {
+        "path": "./images/arm_l_l2"
+    },
+    "arm_l_l3": {
+        "path": "./images/arm_l_l3"
+    },
+    "sword_1_l2": {
+        "path": "./images/sword_1_l2"
+    },
+    "sword_1_l3": {
+        "path": "./images/sword_1_l3"
+    },
+    "hair_9_l2": {
+        "path": "./images/hair_9_l2"
+    },
+    "wing_r_6_l2": {
+        "path": "./images/wing_r_6_l2"
+    },
+    "shoulder_back_r": {
+        "path": "./images/shoulder_back_r"
+    },
+    "hair_9_l1": {
+        "path": "./images/hair_9_l1"
+    },
+    "bracelet_back": {
+        "path": "./images/bracelet_back"
+    },
+    "foot_r_l3": {
+        "path": "./images/foot_r_l3"
+    },
+    "foot_r_l2": {
+        "path": "./images/foot_r_l2"
+    },
+    "sword_1": {
+        "path": "./images/sword_1"
+    },
+    "arm_l": {
+        "path": "./images/arm_l"
+    },
+    "sword_2": {
+        "path": "./images/sword_2"
+    },
+    "nose_l3": {
+        "path": "./images/nose_l3"
+    },
+    "nose_l2": {
+        "path": "./images/nose_l2"
+    },
+    "arm_r": {
+        "path": "./images/arm_r"
+    },
+    "lip_upper_l3": {
+        "path": "./images/lip_upper_l3"
+    },
+    "lip_upper_l2": {
+        "path": "./images/lip_upper_l2"
+    },
+    "hair_8_l1": {
+        "path": "./images/hair_8_l1"
+    },
+    "hair_8_l3": {
+        "path": "./images/hair_8_l3"
+    },
+    "hair_8_l2": {
+        "path": "./images/hair_8_l2"
+    },
+    "sword_2_l3": {
+        "path": "./images/sword_2_l3"
+    },
+    "sword_2_l2": {
+        "path": "./images/sword_2_l2"
+    },
+    "hair_3_l1": {
+        "path": "./images/hair_3_l1"
+    },
+    "forearm_l_l2": {
+        "path": "./images/forearm_l_l2"
+    },
+    "forearm_l_l3": {
+        "path": "./images/forearm_l_l3"
+    },
+    "hair_3_l3": {
+        "path": "./images/hair_3_l3"
+    },
+    "lip_upper": {
+        "path": "./images/lip_upper"
+    },
+    "halo_l2": {
+        "path": "./images/halo_l2"
+    },
+    "wing_r_2_l3": {
+        "path": "./images/wing_r_2_l3"
+    },
+    "nose": {
+        "path": "./images/nose"
+    },
+    "wing_r_2_l1": {
+        "path": "./images/wing_r_2_l1"
+    },
+    "hair_2_l2": {
+        "path": "./images/hair_2_l2"
+    },
+    "hair_2_l1": {
+        "path": "./images/hair_2_l1"
+    },
+    "shoulder_r_l3": {
+        "path": "./images/shoulder_r_l3"
+    },
+    "crown_shadow": {
+        "path": "./images/crown_shadow"
+    },
+    "hair_6_l2": {
+        "path": "./images/hair_6_l2"
+    },
+    "hair_6_l1": {
+        "path": "./images/hair_6_l1"
+    },
+    "arm_r_l3": {
+        "path": "./images/arm_r_l3"
+    },
+    "hair_back_l1": {
+        "path": "./images/hair_back_l1"
+    },
+    "hair_back_l3": {
+        "path": "./images/hair_back_l3"
+    },
+    "hair_back_l2": {
+        "path": "./images/hair_back_l2"
+    },
+    "lip_down_l2": {
+        "path": "./images/lip_down_l2"
+    },
+    "lip_down_l3": {
+        "path": "./images/lip_down_l3"
+    },
+    "leg_2_r": {
+        "path": "./images/leg_2_r"
+    },
+    "hand_l": {
+        "path": "./images/hand_l"
+    },
+    "leg_2_l": {
+        "path": "./images/leg_2_l"
+    },
+    "leg_2_r_l3": {
+        "path": "./images/leg_2_r_l3"
+    },
+    "leg_2_r_l2": {
+        "path": "./images/leg_2_r_l2"
+    },
+    "hair_9_l3": {
+        "path": "./images/hair_9_l3"
+    },
+    "finger_1_r": {
+        "path": "./images/finger_1_r"
+    },
+    "wing_r_6_l1": {
+        "path": "./images/wing_r_6_l1"
+    },
+    "leg_l_l2": {
+        "path": "./images/leg_l_l2"
+    },
+    "leg_l_l3": {
+        "path": "./images/leg_l_l3"
+    },
+    "leg_1_r": {
+        "path": "./images/leg_1_r"
+    },
+    "shoulder_r_l2": {
+        "path": "./images/shoulder_r_l2"
+    },
+    "wing_r_5_l2": {
+        "path": "./images/wing_r_5_l2"
+    },
+    "wing_r_5_l3": {
+        "path": "./images/wing_r_5_l3"
+    },
+    "wing_r_5_l1": {
+        "path": "./images/wing_r_5_l1"
+    },
+    "leg_1_l": {
+        "path": "./images/leg_1_l"
+    },
+    "wing_r_2_l2": {
+        "path": "./images/wing_r_2_l2"
+    },
+    "mouth_interior": {
+        "path": "./images/mouth_interior"
+    },
+    "fingers_r_l2": {
+        "path": "./images/fingers_r_l2"
+    },
+    "fingers_r_l3": {
+        "path": "./images/fingers_r_l3"
+    },
+    "shoulder_back_l_l3": {
+        "path": "./images/shoulder_back_l_l3"
+    },
+    "head_l2": {
+        "path": "./images/head_l2"
+    },
+    "knee_r_l1": {
+        "path": "./images/knee_r_l1"
+    },
+    "knee_r_l2": {
+        "path": "./images/knee_r_l2"
+    },
+    "knee_r_l3": {
+        "path": "./images/knee_r_l3"
+    },
+    "fingers_r": {
+        "path": "./images/fingers_r"
+    },
+    "forearm_l": {
+        "path": "./images/forearm_l"
+    },
+    "forearm_r": {
+        "path": "./images/forearm_r"
+    },
+    "wing_r_8_l1": {
+        "path": "./images/wing_r_8_l1"
+    },
+    "wing_r_8_l3": {
+        "path": "./images/wing_r_8_l3"
+    },
+    "wing_r_8_l2": {
+        "path": "./images/wing_r_8_l2"
+    },
+    "bracelet_front_l2": {
+        "path": "./images/bracelet_front_l2"
+    },
+    "bracelet_front_l3": {
+        "path": "./images/bracelet_front_l3"
+    },
+    "bracelet_front_l1": {
+        "path": "./images/bracelet_front_l1"
+    },
+    "tongue": {
+        "path": "./images/tongue"
+    },
+    "shield_2_l3": {
+        "path": "./images/shield_2_l3"
+    },
+    "eye_l_l1": {
+        "path": "./images/eye_l_l1"
+    },
+    "chest_l3": {
+        "path": "./images/chest_l3"
+    },
+    "eye_l_l3": {
+        "path": "./images/eye_l_l3"
+    },
+    "chest_l1": {
+        "path": "./images/chest_l1"
+    },
+    "shield_1_l3": {
+        "path": "./images/shield_1_l3"
+    },
+    "shield_1_l2": {
+        "path": "./images/shield_1_l2"
+    },
+    "lip_down": {
+        "path": "./images/lip_down"
+    },
+    "wing_r_7_l1": {
+        "path": "./images/wing_r_7_l1"
+    },
+    "wing_r_7_l2": {
+        "path": "./images/wing_r_7_l2"
+    },
+    "wing_r_7_l3": {
+        "path": "./images/wing_r_7_l3"
+    },
+    "wing_r_6_l3": {
+        "path": "./images/wing_r_6_l3"
+    },
+    "hair_6_l3": {
+        "path": "./images/hair_6_l3"
+    },
+    "wing_r_1_l2": {
+        "path": "./images/wing_r_1_l2"
+    },
+    "wing_r_1_l3": {
+        "path": "./images/wing_r_1_l3"
+    },
+    "shoulder_back_l_l2": {
+        "path": "./images/shoulder_back_l_l2"
+    },
+    "wing_r_1_l1": {
+        "path": "./images/wing_r_1_l1"
+    },
+    "arm_r_l2": {
+        "path": "./images/arm_r_l2"
+    },
+    "hair_3_l2": {
+        "path": "./images/hair_3_l2"
+    },
+    "finger_1_r_l3": {
+        "path": "./images/finger_1_r_l3"
+    },
+    "forearm_r_l2": {
+        "path": "./images/forearm_r_l2"
+    },
+    "forearm_r_l3": {
+        "path": "./images/forearm_r_l3"
+    },
+    "waist_l2": {
+        "path": "./images/waist_l2"
+    },
+    "wing_r_4_l1": {
+        "path": "./images/wing_r_4_l1"
+    },
+    "wing_r_4_l3": {
+        "path": "./images/wing_r_4_l3"
+    },
+    "wing_r_4_l2": {
+        "path": "./images/wing_r_4_l2"
+    },
+    "hair_head_1_l2": {
+        "path": "./images/hair_head_1_l2"
+    },
+    "hair_head_1_l3": {
+        "path": "./images/hair_head_1_l3"
+    },
+    "hair_head_1_l1": {
+        "path": "./images/hair_head_1_l1"
+    },
+    "head": {
+        "path": "./images/head"
+    },
+    "leg_1_r_l2": {
+        "path": "./images/leg_1_r_l2"
+    },
+    "leg_1_r_l3": {
+        "path": "./images/leg_1_r_l3"
+    },
+    "hair_head_2_l3": {
+        "path": "./images/hair_head_2_l3"
+    },
+    "hair_7_l1": {
+        "path": "./images/hair_7_l1"
+    },
+    "hair_head_2_l1": {
+        "path": "./images/hair_head_2_l1"
+    },
+    "hair_7_l3": {
+        "path": "./images/hair_7_l3"
+    },
+    "ear": {
+        "path": "./images/ear"
+    },
+    "clothes_l1": {
+        "path": "./images/clothes_l1"
+    },
+    "wing_l_3_l2": {
+        "path": "./images/wing_l_3_l2"
+    },
+    "clothes_l3": {
+        "path": "./images/clothes_l3"
+    },
+    "clothes_l2": {
+        "path": "./images/clothes_l2"
+    },
+    "hair_4_l1": {
+        "path": "./images/hair_4_l1"
+    },
+    "hair_4_l3": {
+        "path": "./images/hair_4_l3"
+    },
+    "hair_4_l2": {
+        "path": "./images/hair_4_l2"
+    },
+    "hair_2_l3": {
+        "path": "./images/hair_2_l3"
+    },
+    "halo_l3": {
+        "path": "./images/halo_l3"
+    },
+    "shoulder_r_l1": {
+        "path": "./images/shoulder_r_l1"
+    },
+    "halo_l1": {
+        "path": "./images/halo_l1"
+    },
+    "wing_r_3_l1": {
+        "path": "./images/wing_r_3_l1"
+    },
+    "wing_r_3_l2": {
+        "path": "./images/wing_r_3_l2"
+    },
+    "wing_r_3_l3": {
+        "path": "./images/wing_r_3_l3"
+    },
+    "leg_1_l_l3": {
+        "path": "./images/leg_1_l_l3"
+    },
+    "shield_2": {
+        "path": "./images/shield_2"
+    },
+    "shield_1": {
+        "path": "./images/shield_1"
+    },
+    "yellow_glow": {
+        "path": "./images/yellow_glow"
+    },
+    "waist_l3": {
+        "path": "./images/waist_l3"
+    },
+    "leg_2_l_l2": {
+        "path": "./images/leg_2_l_l2"
+    },
+    "hand_l_l2": {
+        "path": "./images/hand_l_l2"
+    },
+    "hand_l_l3": {
+        "path": "./images/hand_l_l3"
+    },
+    "shoulder_l_l1": {
+        "path": "./images/shoulder_l_l1"
+    },
+    "shoulder_l_l3": {
+        "path": "./images/shoulder_l_l3"
+    },
+    "shoulder_l_l2": {
+        "path": "./images/shoulder_l_l2"
+    },
+    "leg_l": {
+        "path": "./images/leg_l"
+    },
+    "wing_l_3_l3": {
+        "path": "./images/wing_l_3_l3"
+    },
+    "wing_l_3_l1": {
+        "path": "./images/wing_l_3_l1"
+    },
+    "knee_l_l2": {
+        "path": "./images/knee_l_l2"
+    },
+    "knee_l_l3": {
+        "path": "./images/knee_l_l3"
+    },
+    "knee_l_l1": {
+        "path": "./images/knee_l_l1"
+    },
+    "crown_l1": {
+        "path": "./images/crown_l1"
+    },
+    "crown_l2": {
+        "path": "./images/crown_l2"
+    },
+    "crown_l3": {
+        "path": "./images/crown_l3"
+    },
+    "hair_5_l2": {
+        "path": "./images/hair_5_l2"
+    },
+    "hair_5_l3": {
+        "path": "./images/hair_5_l3"
+    },
+    "head_shadow": {
+        "path": "./images/head_shadow"
+    },
+    "hair_5_l1": {
+        "path": "./images/hair_5_l1"
+    },
+    "bracelet_back_l3": {
+        "path": "./images/bracelet_back_l3"
+    },
+    "eye_r_l3": {
+        "path": "./images/eye_r_l3"
+    },
+    "eye_r_l2": {
+        "path": "./images/eye_r_l2"
+    },
+    "eye_r_l1": {
+        "path": "./images/eye_r_l1"
+    },
+    "hand_palm_r_l2": {
+        "path": "./images/hand_palm_r_l2"
+    },
+    "hand_palm_r_l3": {
+        "path": "./images/hand_palm_r_l3"
+    },
+    "wing_l_2_l1": {
+        "path": "./images/wing_l_2_l1"
+    },
+    "wing_l_2_l3": {
+        "path": "./images/wing_l_2_l3"
+    },
+    "wing_l_2_l2": {
+        "path": "./images/wing_l_2_l2"
+    },
+    "hips_l3": {
+        "path": "./images/hips_l3"
+    },
+    "shoulder_back_l_l1": {
+        "path": "./images/shoulder_back_l_l1"
+    },
+    "head_l3": {
+        "path": "./images/head_l3"
+    },
+    "foot_r": {
+        "path": "./images/foot_r"
+    },
+    "shield_2_l2": {
+        "path": "./images/shield_2_l2"
+    },
+    "finger_1_r_l2": {
+        "path": "./images/finger_1_r_l2"
+    },
+    "wing_l_1_l1": {
+        "path": "./images/wing_l_1_l1"
+    },
+    "wing_l_1_l2": {
+        "path": "./images/wing_l_1_l2"
+    },
+    "wing_l_1_l3": {
+        "path": "./images/wing_l_1_l3"
+    },
+    "leg_2_l_l3": {
+        "path": "./images/leg_2_l_l3"
+    },
+    "waist": {
+        "path": "./images/waist"
+    },
+    "hair_head_2_l2": {
+        "path": "./images/hair_head_2_l2"
+    },
+    "leg_1_l_l2": {
+        "path": "./images/leg_1_l_l2"
+    },
+    "chest_l2": {
+        "path": "./images/chest_l2"
+    },
+    "hair_7_l2": {
+        "path": "./images/hair_7_l2"
+    },
+    "crown_back_l1": {
+        "path": "./images/crown_back_l1"
+    },
+    "crown_back_l3": {
+        "path": "./images/crown_back_l3"
+    },
+    "crown_back_l2": {
+        "path": "./images/crown_back_l2"
+    },
+    "hand_palm_r": {
+        "path": "./images/hand_palm_r"
+    },
+    "eye_l_l2": {
+        "path": "./images/eye_l_l2"
+    },
+    "hips": {
+        "path": "./images/hips"
+    }
+}

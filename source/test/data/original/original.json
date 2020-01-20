@@ -1,0 +1,320 @@
+{
+    "bones": [
+        {
+            "name": "root"
+        },
+        {
+            "name": "master",
+            "parent": "root",
+            "length": 117.83,
+            "y": 293,
+            "x": -90.5,
+            "rotation": -30.050000000000001
+        },
+        {
+            "name": "bone",
+            "parent": "master"
+        },
+        {
+            "name": "bone2",
+            "parent": "root",
+            "color": "06e7efff",
+            "length": 110.98,
+            "y": 233,
+            "x": -116.5,
+            "rotation": -32.109999999999999
+        },
+        {
+            "name": "bone3",
+            "parent": "root",
+            "color": "00ff1cff",
+            "length": 102.34,
+            "y": 175,
+            "x": -129.5,
+            "rotation": -33.850000000000001
+        },
+        {
+            "name": "bone4",
+            "parent": "root",
+            "color": "ff8509ff",
+            "length": 103,
+            "y": 118,
+            "x": -145.5,
+            "rotation": -36.310000000000002
+        },
+        {
+            "name": "bone5",
+            "parent": "master",
+            "color": "ff0000ff",
+            "length": 114.06,
+            "y": -0.64000000000000001,
+            "x": 114.73999999999999,
+            "rotation": 2.3599999999999999
+        }
+    ],
+    "slots": [
+        {
+            "name": "freepik2",
+            "bone": "bone5",
+            "attachment": "unnamed"
+        },
+        {
+            "name": "freepik",
+            "bone": "master"
+        },
+        {
+            "name": "bone3_slot_check_image",
+            "bone": "bone3",
+            "attachment": "check_image"
+        },
+        {
+            "name": "empty",
+            "bone": "bone4"
+        },
+        {
+            "name": "bone2_slot2",
+            "bone": "bone2",
+            "attachment": "image_1"
+        },
+        {
+            "name": "bone2_slot1",
+            "bone": "bone2"
+        },
+        {
+            "name": "path",
+            "bone": "bone5",
+            "attachment": "path"
+        },
+        {
+            "name": "freepik_copy",
+            "bone": "bone",
+            "attachment": "freepik_copy"
+        }
+    ],
+    "skins": [
+        {
+            "name": "default",
+            "attachments": {
+                "path": {
+                    "path": {
+                        "lengths": [
+                            1022.86,
+                            2224.8000000000002
+                        ],
+                        "type": "path",
+                        "vertexCount": 6,
+                        "vertices": [
+                            -161.31,
+                            -607.24000000000001,
+                            -114.12,
+                            -318.31999999999999,
+                            -83.950000000000003,
+                            -114.05,
+                            345.56,
+                            179.21000000000001,
+                            737.38999999999999,
+                            128.50999999999999,
+                            1027.8399999999999,
+                            90.319999999999993
+                        ]
+                    }
+                },
+                "freepik_copy": {
+                    "freepik_copy": {
+                        "y": 532.47000000000003,
+                        "x": 495.75999999999999,
+                        "rotation": -2.0699999999999998,
+                        "width": 150,
+                        "height": 150
+                    }
+                },
+                "bone2_slot2": {
+                    "image_1": {
+                        "scaleX": 0.22919999999999999,
+                        "scaleY": 0.22919999999999999,
+                        "height": 512,
+                        "width": 512,
+                        "y": 4.4100000000000001,
+                        "x": 51.359999999999999
+                    }
+                },
+                "bone3_slot_check_image": {
+                    "check_image": {
+                        "hull": 4,
+                        "uvs": [
+                            1,
+                            1,
+                            0,
+                            1,
+                            0,
+                            0,
+                            1,
+                            0
+                        ],
+                        "vertices": [
+                            170.15000000000001,
+                            -48.149999999999999,
+                            42.219999999999999,
+                            -48.149999999999999,
+                            42.219999999999999,
+                            79.790000000000006,
+                            170.15000000000001,
+                            79.790000000000006
+                        ],
+                        "height": 352,
+                        "width": 352,
+                        "edges": [
+                            0,
+                            2,
+                            2,
+                            4,
+                            4,
+                            6,
+                            0,
+                            6
+                        ],
+                        "type": "mesh",
+                        "triangles": [
+                            1,
+                            2,
+                            3,
+                            1,
+                            3,
+                            0
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "skin2",
+            "attachments": {
+                "freepik2": {
+                    "unnamed": {
+                        "y": 38.289999999999999,
+                        "x": 150.44,
+                        "rotation": 27.690000000000001,
+                        "width": 300,
+                        "height": 300
+                    },
+                    "freepik": {
+                        "y": 174.94,
+                        "x": 417.30000000000001,
+                        "rotation": 27.699999999999999,
+                        "width": 300,
+                        "height": 300
+                    }
+                }
+            }
+        },
+        {
+            "name": "skin3",
+            "attachments": {
+                "freepik2": {
+                    "unnamed": {
+                        "y": 38.289999999999999,
+                        "x": 150.44,
+                        "rotation": -152.21000000000001,
+                        "width": 300,
+                        "height": 300
+                    },
+                    "freepik": {
+                        "y": 33.310000000000002,
+                        "x": 147.40000000000001,
+                        "rotation": 27.699999999999999,
+                        "width": 300,
+                        "height": 300
+                    }
+                }
+            }
+        }
+    ],
+    "skeleton": {
+        "hash": "ony8zbgptMQSCbAFnvdEMeg4j74",
+        "width": 860.20000000000005,
+        "spine": "3.8.59",
+        "height": 568.84000000000003,
+        "y": 40.25,
+        "images": "./images/",
+        "x": -151.56,
+        "audio": ""
+    },
+    "animations": {
+        "anim1": {
+            "bones": {
+                "bone3": {
+                    "shear": [
+                        {
+                            "y": 0.040000000000000001
+                        }
+                    ]
+                },
+                "master": {
+                    "translate": [
+                        {
+                            "y": 7.3499999999999996,
+                            "x": 41.350000000000001
+                        },
+                        {
+                            "y": 19.300000000000001,
+                            "x": 299.58999999999997,
+                            "time": 0.5
+                        }
+                    ]
+                }
+            },
+            "slots": {
+                "bone2_slot2": {
+                    "attachment": [
+                        {
+                            "name": "image_1"
+                        }
+                    ]
+                },
+                "bone3_slot_check_image": {
+                    "attachment": [
+                        {
+                            "name": "None"
+                        }
+                    ]
+                }
+            }
+        },
+        "anim2": {
+            "slots": {
+                "path": {
+                    "attachment": [
+                        {
+                            "name": "None"
+                        }
+                    ]
+                },
+                "freepik_copy": {
+                    "attachment": [
+                        {
+                            "name": "None"
+                        }
+                    ]
+                },
+                "freepik2": {
+                    "attachment": [
+                        {
+                            "name": "None"
+                        },
+                        {
+                            "name": "freepik",
+                            "time": 0.69999999999999996
+                        }
+                    ]
+                },
+                "bone2_slot2": {
+                    "attachment": [
+                        {
+                            "name": "image_1"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
