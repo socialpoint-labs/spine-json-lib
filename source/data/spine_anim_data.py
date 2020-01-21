@@ -3,23 +3,23 @@ import functools
 
 from typing import Dict, Any, List, Union, FrozenSet, TypeVar
 
-from source.spine.data.constants import SPINE_3_8_VERSION
-from source.spine.data.data_types.animation import Animation
-from source.spine.data.data_types.bone import Bone
-from source.spine.data.data_types.events import Events
-from source.spine.data.data_types.ik import Ik
-from source.spine.data.data_types.path import Path
-from source.spine.data.data_types.skin import (
+from source.data.constants import SPINE_3_8_VERSION
+from source.data.data_types.animation import Animation
+from source.data.data_types.bone import Bone
+from source.data.data_types.events import Events
+from source.data.data_types.ik import Ik
+from source.data.data_types.path import Path
+from source.data.data_types.skin import (
     Skin38,
     parse_skin_attachment_data,
     SkinLinkedMesh,
     SkinAttachment,
     SkinMesh)
-from source.spine.data.data_types.slot import Slot
-from source.spine.data.data_types.transform import Transform
-from source.spine.data.data_types.base_type import SpineData
-from source.spine.data.spine_exceptions import SpineJsonEditorError
-from source.spine.data.spine_version_type import SpineVersion
+from source.data.data_types.slot import Slot
+from source.data.data_types.transform import Transform
+from source.data.data_types.base_type import SpineData
+from source.data.spine_exceptions import SpineJsonEditorError
+from source.data.spine_version_type import SpineVersion
 
 
 # Mypy forward declarations
@@ -35,51 +35,8 @@ class JsonSpineAnimationData:
         )
         self.data = self.load_data(data=data)
 
-    def to_version(self, target_version: SpineVersion) -> JsonSpineAnimationDataType:
-
-        is_current_format_new = self.spine_version >= SPINE_3_8_VERSION
-        is_desired_format_new = target_version >= SPINE_3_8_VERSION
-
-        if is_current_format_new == is_desired_format_new:
-            # If we have already the desired format, just do nothing
-            return self
-
-        if is_desired_format_new:
-            # Convert from OLD_FORMAT to NEW implies changes:
-            # like changing the structure of skins from Dict to List.
-            skins_new: List[Dict[str, Any]] = []
-            for skin, v in self.data.skins.items():
-                for skin_name, attachment_data in v.items():
-                    skins_new.append(
-                        {"name": skin_name, "attachments": attachment_data}
-                    )
-            self.data.skins = skins_new
-        else:
-            # Convert from NEW_FORMAT to OLD implies some changes:
-            # 1 - changing the structure of skins from List to Dict like
-            # 2 - remove x, y, and audio from skeleton data.
-            skins_old: Dict[str, Any] = {}
-            for skin in self.data.skins:
-                name_ = skin.name
-                skins_old[name_] = skin.attachments
-
-            if "x" in self.skeleton:
-                del self.skeleton["x"]
-            if "y" in self.skeleton:
-                del self.skeleton["y"]
-            if "audio" in self.skeleton:
-                del self.skeleton["audio"]
-
-            self.data.skins = skins_old
-            self.data.clean_unsupported_attributes(spine_version=target_version)
-
-        self.skeleton["spine"] = copy.deepcopy(target_version.version)
-        self.spine_version = copy.deepcopy(target_version)
-
-        return self
-
     def load_data(self, data: Dict[str, Any]) -> SpineAnimationDataType:
-        _data = SpineAnimationData(data=data, version=self.spine_version)
+        _data = SpineAnimationData(data=data)
         _data.set_default_values(version=self.spine_version)
         return _data
 
@@ -101,15 +58,13 @@ class SpineAnimationData(SpineData):
     }
     SPINE_3_8_DEFAULT_VALUES: Dict[str,Any] = DEFAULT_VALUES
 
-    def __init__(self, data: Dict[str, Any], version: SpineVersion) -> None:
+    def __init__(self, data: Dict[str, Any]) -> None:
         _data = copy.deepcopy(data)
         del _data["skeleton"]
 
         self.bones: List[Bone] = [Bone(value) for value in _data["bones"]]
         self.slots: List[Slot] = [Slot(value) for value in _data["slots"]]
-        self.skins: Union[Dict[str, Any], List[Skin38]] = self.parse_skins_from_version(
-            version=version, data_skins=_data["skins"]
-        )
+        self.skins: Union[Dict[str, Any], List[Skin38]] = [Skin38(value) for value in _data["skins"]]
 
         self.events: Dict[str, Events] = {
             key: Events(_data["events"][key]) for key in _data.get("events", {})
@@ -136,23 +91,8 @@ class SpineAnimationData(SpineData):
         return None
 
     @staticmethod
-    def parse_skins_from_version(version: SpineVersion, data_skins) -> Union[Dict[str, Any], List[Skin38]]:
-        if version >= SPINE_3_8_VERSION:
-            return SpineAnimationData.parse_skins_new_version(data_skins)
-        else:
-            return SpineAnimationData.parse_skins_old_version(data_skins)
-
-    @staticmethod
-    def parse_skins_new_version(data_skins: List) -> List[Skin38]:
+    def parse_skins_from_version(version: SpineVersion, data_skins) -> List[Skin38]:
         return [Skin38(value) for value in data_skins]
-
-    @staticmethod
-    def parse_skins_old_version(data_skins: Dict[str, Any]) -> Dict[str, Any]:
-        skins: Dict[str, Any] = {}
-
-        for i, v in data_skins.items():
-            skins[i] = parse_skin_attachment_data(v)
-        return skins
 
     def get_skin(self, skin_id):
         for skin in self.skins:

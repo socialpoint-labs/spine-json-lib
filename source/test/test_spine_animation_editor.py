@@ -3,12 +3,11 @@ import os
 import pytest
 import json
 
-from spine.data.constants import SPINE_LATEST_3_7_VERSION
-from spine.spine_animation_editor import SpineAnimationEditor
+from source.data.constants import SPINE_LATEST_3_7_VERSION
+from source.spine_animation_editor import SpineAnimationEditor
+from deepdiff import DeepDiff
 from typing import Any
 from typing import Dict
-from typing import List
-from typing import Union
 
 SPINE_JSON_ERASE_SKIN_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "data/original/masquerade_skeleton.json"
@@ -22,9 +21,6 @@ SPINE_JSON_ERASE_PATH = os.path.join(
 )
 SPINE_JSON_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "data/original/original.json"
-)
-SPINE_JSON_OLD_VERSION_PATH = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "data/original/old_version.json"
 )
 IMAGES_JSON_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "data/original/image_paths.json"
@@ -62,18 +58,6 @@ def fixture_elvira_spine_json_data() -> Dict[str, Any]:
 
 
 class TestSpineAnimationEditor:
-    def test_load_old_version(self):
-        animation_editor = SpineAnimationEditor.from_json_file(
-            json_path=SPINE_JSON_OLD_VERSION_PATH
-        )
-
-        with open(SPINE_JSON_OLD_VERSION_PATH) as f:
-            json_data = json.load(f)
-
-        assert_compare_dicts(
-            animation_editor.to_json_data(), json_data, ignore_order=False
-        )
-
     def test_load_new_version(self):
         animation_editor = SpineAnimationEditor.from_json_file(
             json_path=SPINE_JSON_PATH
@@ -82,20 +66,9 @@ class TestSpineAnimationEditor:
         with open(SPINE_JSON_PATH) as f:
             json_data = json.load(f)
 
-        assert_compare_dicts(
+        assert DeepDiff(
             animation_editor.to_json_data(), json_data, ignore_order=False
-        )
-
-    def test_convert_from_3_8_to_3_7(self):
-        animation_editor = SpineAnimationEditor.from_json_file(
-            json_path=SPINE_JSON_PATH
-        )
-        result = animation_editor.to_version(spine_version=SPINE_LATEST_3_7_VERSION)
-
-        with open(SPINE_JSON_OLD_VERSION_PATH) as f:
-            json_data = json.load(f)
-
-        assert_compare_dicts(result.to_json_data(), json_data, ignore_order=False)
+        ) == {}
 
     def test_erase_animation(self, fixture_elvira_spine_json_data):
         animation_editor = SpineAnimationEditor.from_json_file(
@@ -105,19 +78,17 @@ class TestSpineAnimationEditor:
             animations_to_erase=["attack", "special1", "levelup", "prone"],
             strict_mode=True,
         )
-        result_erased = orderer(result.result_data_json)
-        cleaned_animation_spine_json = orderer(fixture_elvira_spine_json_data)
 
-        assert_compare_dicts(
-            cleaned_animation_spine_json, result_erased, ignore_order=False
-        )
+        assert DeepDiff(
+            fixture_elvira_spine_json_data, result.result_data_json, ignore_order=False
+        ) == {}
 
         with open(ELVIRA_CLEANED_UP_IMAGES_JSON_PATH, "r") as f:
             data_image_refs = json.load(f)
 
-        assert_compare_dicts(
+        assert DeepDiff(
             animation_editor.images_references, data_image_refs, ignore_order=False
-        )
+        ) ==  {}
 
     def test_images_refs(self):
         animation_editor = SpineAnimationEditor.from_json_file(
@@ -126,9 +97,9 @@ class TestSpineAnimationEditor:
         with open(IMAGES_JSON_PATH, "r") as f:
             data_image_refs = json.load(f)
 
-        assert_compare_dicts(
+        assert DeepDiff(
             animation_editor.images_references, data_image_refs, ignore_order=False
-        )
+        ) == {}
 
     def test_erase_skins(self):
         animation_editor = SpineAnimationEditor.from_json_file(
@@ -137,7 +108,8 @@ class TestSpineAnimationEditor:
         clean_up_removed_data, skin_related_images = animation_editor.erase_skins(
             skins_to_erase=["basic"]
         )
-        assert skin_related_images == [
+        # import ipdb; ipdb.set_trace()
+        assert sorted(skin_related_images) == sorted([
             "sherezar/belt_l",
             "sherezar/ponytail_2",
             "sherezar/eye_l",
@@ -184,9 +156,9 @@ class TestSpineAnimationEditor:
             "sherezar/finger_r_1",
             "sherezar/stick_down",
             "sherezar/hips",
-        ]
-        assert clean_up_removed_data == (
-            [
+        ])
+        slots_removed, attachments_removed = clean_up_removed_data
+        assert sorted(slots_removed) == sorted([
                 "ponytail_4",
                 "fx/purple_smoke12",
                 "fx/purple_smoke11",
@@ -200,8 +172,8 @@ class TestSpineAnimationEditor:
                 "fx/purple_smoke9",
                 "fx/purple_smoke8",
                 "skirt",
-            ],
-            frozenset(
+            ])
+        assert attachments_removed == frozenset(
                 [
                     "fx_purple_smoke_5",
                     "fx_purple_smoke_4",
@@ -214,8 +186,7 @@ class TestSpineAnimationEditor:
                     "fx_purple_smoke_6",
                     "fx_purple_smoke_8",
                 ]
-            ),
-        )
+            )
 
         assert "basic" not in [
             skin_data.name for skin_data in animation_editor.spine_anim_data.data.skins
@@ -224,4 +195,4 @@ class TestSpineAnimationEditor:
         with open(SPINE_IMAGES_JSON_ERASE_SKIN_REFS_PATH, "r") as f:
             imgs_refs_expected = json.load(f)
 
-        assert_compare_dicts(animation_editor.images_references, imgs_refs_expected)
+        assert DeepDiff(animation_editor.images_references, imgs_refs_expected) == {}

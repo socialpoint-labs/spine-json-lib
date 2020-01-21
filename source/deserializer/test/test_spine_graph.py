@@ -3,15 +3,12 @@ import os
 
 import pytest
 
-from spine.deserializer.spine_nodes import (
+from source.deserializer.spine_nodes import (
     SpineNodeFactory,
     SpineGraphParser,
 )
 from typing import Any
 from typing import Dict
-from typing import List
-from typing import Text
-from typing import Union
 
 SPINE_JSON_PATH = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "data/spine_json_example.json"

@@ -161,8 +161,6 @@ class SpineGraphParser(IGraphParser):
     def create_from_json_data(
         cls, json_data: Dict[str, Any], node_factory: SpineNodeFactory
     ) -> DAGraph:
-        spine_version = SpineVersion(json_data["skeleton"]["spine"])
-
         graph = DAGraph(node_factory)
 
         for idx, bone_data in enumerate(json_data["bones"]):
@@ -219,20 +217,14 @@ class SpineGraphParser(IGraphParser):
                     graph.add_edge(spine_slot_data.node_id, attachment_data.node_id)
 
             # Adding attachments as child to slots differentiating between versions:
-            if spine_version >= SPINE_3_8_VERSION:
-                for data in json_data["skins"]:
-                    skin_data = data.get("attachments")
-                    if skin_data:
-                        slot_skinned = skin_data.get(_slot_data["name"], [])
-
-                        add_slot_skinned_to_graph(
-                            graph=graph, slot_skinned=slot_skinned
-                        )
-            else:
-                for skin_data in json_data["skins"].values():
+            for data in json_data["skins"]:
+                skin_data = data.get("attachments")
+                if skin_data:
                     slot_skinned = skin_data.get(_slot_data["name"], [])
 
-                    add_slot_skinned_to_graph(graph=graph, slot_skinned=slot_skinned)
+                    add_slot_skinned_to_graph(
+                        graph=graph, slot_skinned=slot_skinned
+                    )
 
             # Getting optional parents from slot
             parent_id = SpineGraphParser._to_graph_id(

@@ -2,7 +2,7 @@ import copy
 
 from typing import Dict, Any, List
 
-from source.spine.data.data_types.base_type import SpineData
+from source.data.data_types.base_type import SpineData
 
 
 MESH_TYPE = "mesh"

@@ -1,14 +1,14 @@
 from typing import List, Dict, Any
 
-from source.spine.data.data_types.base_type import SpineData
-from source.spine.data.data_types.bone import BoneTimeline
-from source.spine.data.data_types.deform import Deform
-from source.spine.data.data_types.draworder import DrawOrderTimeline
-from source.spine.data.data_types.events import EventTimeline
-from source.spine.data.data_types.ik import IkTimeline
-from source.spine.data.data_types.path import PathTimeline
-from source.spine.data.data_types.slot import SlotTimeline
-from source.spine.data.data_types.transform import TransformTimeline
+from source.data.data_types.base_type import SpineData
+from source.data.data_types.bone import BoneTimeline
+from source.data.data_types.deform import Deform
+from source.data.data_types.draworder import DrawOrderTimeline
+from source.data.data_types.events import EventTimeline
+from source.data.data_types.ik import IkTimeline
+from source.data.data_types.path import PathTimeline
+from source.data.data_types.slot import SlotTimeline
+from source.data.data_types.transform import TransformTimeline
 
 
 class Animation(SpineData):

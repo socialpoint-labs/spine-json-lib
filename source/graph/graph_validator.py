@@ -3,13 +3,9 @@ from typing import Any
 from typing import Dict
 from typing import List
 from typing import Set
-from typing import TYPE_CHECKING
 
 from source.graph.spamnode import DEFAULT_NODE_TYPE
 from source.graph.spamnode import SpamNode
-
-if TYPE_CHECKING:
-    from source.graph.dagraph import DAGraph
 
 
 class UCNodeType(Enum):
@@ -54,7 +50,7 @@ class GraphValidator(object):
     def __init__(self) -> None:
         self.errors: GraphValidationErrors = None
 
-    def validate(self, graph: DAGraph) -> GraphValidationErrors:
+    def validate(self, graph) -> GraphValidationErrors:
         """Execute the necessary validations over the graph and return an GraphValidationError"""
         self.errors = GraphValidationErrors()
 
@@ -69,7 +65,7 @@ class GraphValidator(object):
         return self.errors
 
     @classmethod
-    def get_unconnected_nodes(cls, graph: DAGraph) -> List:
+    def get_unconnected_nodes(cls, graph) -> List:
         unconnected_nodes = []
         heads = graph.get_heads_id()
         for head_id in heads:
@@ -84,7 +80,7 @@ class GraphValidator(object):
         return unconnected_nodes
 
     @classmethod
-    def get_circular_dependencies(cls, graph: DAGraph) -> List[Any]:
+    def get_circular_dependencies(cls, graph) -> List[Any]:
         """
         Check over every node if there are any cycling dependency
         :return: Return n lists of cycling references otherwise return a []
