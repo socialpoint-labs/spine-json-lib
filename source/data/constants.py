@@ -1,4 +1,4 @@
-from source.spine.data.spine_version_type import SpineVersion
+from source.data.spine_version_type import SpineVersion
 
 SPINE_3_7_VERSION = SpineVersion("3.7")
 SPINE_3_8_VERSION = SpineVersion("3.8")

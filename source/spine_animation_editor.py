@@ -5,16 +5,16 @@ from collections import namedtuple
 
 from typing import List, TypeVar
 
-from spine.data.constants import SPINE_3_8_VERSION
-from spine.data.data_types.bone import Bone
-from spine.data.data_types.ik import Ik
-from spine.data.data_types.skin import SkinPath
-from spine.data.data_types.slot import Slot
-from spine.data.spine_anim_data import JsonSpineAnimationData
-from spine.data.spine_exceptions import SpineJsonEditorError
-from spine.data.spine_version_type import SpineVersion
-from spine.deserializer.spine_nodes import SpineGraphParser, NodeType
-from spine.spine_graph_container import SpineGraphContainer
+from source.data.constants import SPINE_3_8_VERSION
+from source.data.data_types.bone import Bone
+from source.data.data_types.ik import Ik
+from source.data.data_types.skin import SkinPath
+from source.data.data_types.slot import Slot
+from source.data.spine_anim_data import JsonSpineAnimationData
+from source.data.spine_exceptions import SpineJsonEditorError
+from source.data.spine_version_type import SpineVersion
+from source.deserializer.spine_nodes import SpineGraphParser, NodeType
+from source.spine_graph_container import SpineGraphContainer
 
 ANIMATION_EMPTY_ATTACHMENT = {"time": 0, "name": None}
 ErasingResult = namedtuple("ErasingResult", "result_data_json result_summary")
@@ -200,13 +200,6 @@ class SpineAnimationEditor(object):
 
         with open(output_json, "w") as outfile:
             json.dump(self.to_json_data(), outfile, indent=4)
-
-    def to_version(self, spine_version: SpineVersion) -> SpineAnimationEditorType:
-        self.spine_anim_data = self.spine_anim_data.to_version(
-            target_version=spine_version
-        )
-
-        return self
 
     def get_images_references(self):
         paths = {}

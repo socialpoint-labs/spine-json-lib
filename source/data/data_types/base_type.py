@@ -1,9 +1,9 @@
 import copy
 from typing import Dict, Any, Optional, Callable, List, TypeVar
 
-from source.spine.data.constants import SPINE_3_8_VERSION
-from source.spine.data.spine_exceptions import SpineParsingException
-from source.spine.data.spine_version_type import SpineVersion
+from source.data.constants import SPINE_3_8_VERSION
+from source.data.spine_exceptions import SpineParsingException
+from source.data.spine_version_type import SpineVersion
 
 
 SpineDataType = TypeVar("SpineDataType", bound="SpineData")
