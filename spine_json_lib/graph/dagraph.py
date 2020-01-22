@@ -4,7 +4,11 @@ from typing import List
 from typing import Optional
 from typing import Union
 
-from spine_json_lib.graph.factories import INodeFactory, IGraphParser, DefaultNodeFactory
+from spine_json_lib.graph.factories import (
+    INodeFactory,
+    IGraphParser,
+    DefaultNodeFactory,
+)
 from spine_json_lib.graph.graph_validator import GraphValidationErrors
 from spine_json_lib.graph.graph_validator import GraphValidator
 from spine_json_lib.graph.spamnode import DEFAULT_NODE_TYPE

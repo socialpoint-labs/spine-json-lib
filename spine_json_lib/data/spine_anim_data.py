@@ -3,7 +3,6 @@ import functools
 
 from typing import Dict, Any, List, Union, FrozenSet, TypeVar
 
-from spine_json_lib.data.constants import SPINE_3_8_VERSION
 from spine_json_lib.data.data_types.animation import Animation
 from spine_json_lib.data.data_types.bone import Bone
 from spine_json_lib.data.data_types.events import Events
@@ -11,10 +10,10 @@ from spine_json_lib.data.data_types.ik import Ik
 from spine_json_lib.data.data_types.path import Path
 from spine_json_lib.data.data_types.skin import (
     Skin38,
-    parse_skin_attachment_data,
     SkinLinkedMesh,
     SkinAttachment,
-    SkinMesh)
+    SkinMesh,
+)
 from spine_json_lib.data.data_types.slot import Slot
 from spine_json_lib.data.data_types.transform import Transform
 from spine_json_lib.data.data_types.base_type import SpineData
@@ -23,16 +22,16 @@ from spine_json_lib.data.spine_version_type import SpineVersion
 
 
 # Mypy forward declarations
-JsonSpineAnimationDataType = TypeVar('JsonSpineAnimationDataType', bound='JsonSpineAnimationData')
-SpineAnimationDataType = TypeVar('SpineAnimationDataType', bound='SpineAnimationData')
+JsonSpineAnimationDataType = TypeVar(
+    "JsonSpineAnimationDataType", bound="JsonSpineAnimationData"
+)
+SpineAnimationDataType = TypeVar("SpineAnimationDataType", bound="SpineAnimationData")
 
 
 class JsonSpineAnimationData:
     def __init__(self, data):
         self.skeleton = copy.deepcopy(data["skeleton"])
-        self.spine_version: SpineVersion = SpineVersion(
-            version=self.skeleton["spine"]
-        )
+        self.spine_version: SpineVersion = SpineVersion(version=self.skeleton["spine"])
         self.data = self.load_data(data=data)
 
     def load_data(self, data: Dict[str, Any]) -> SpineAnimationDataType:
@@ -47,7 +46,7 @@ class JsonSpineAnimationData:
 
 
 class SpineAnimationData(SpineData):
-    DEFAULT_VALUES: Dict[str,Any] = {
+    DEFAULT_VALUES: Dict[str, Any] = {
         "bones": [],
         "slots": [],
         "events": {},
@@ -56,7 +55,7 @@ class SpineAnimationData(SpineData):
         "path": [],
         "animations": {},
     }
-    SPINE_3_8_DEFAULT_VALUES: Dict[str,Any] = DEFAULT_VALUES
+    SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = DEFAULT_VALUES
 
     def __init__(self, data: Dict[str, Any]) -> None:
         _data = copy.deepcopy(data)
@@ -64,7 +63,9 @@ class SpineAnimationData(SpineData):
 
         self.bones: List[Bone] = [Bone(value) for value in _data["bones"]]
         self.slots: List[Slot] = [Slot(value) for value in _data["slots"]]
-        self.skins: Union[Dict[str, Any], List[Skin38]] = [Skin38(value) for value in _data["skins"]]
+        self.skins: Union[Dict[str, Any], List[Skin38]] = [
+            Skin38(value) for value in _data["skins"]
+        ]
 
         self.events: Dict[str, Events] = {
             key: Events(_data["events"][key]) for key in _data.get("events", {})
@@ -248,7 +249,10 @@ class SpineAnimationData(SpineData):
         l_attachments_used = frozenset([])
 
         for anim_id, anim_data in self.animations.items():
-            anim_visible_slots, anim_used_attachments = self.get_visible_slots_and_attachments(
+            (
+                anim_visible_slots,
+                anim_used_attachments,
+            ) = self.get_visible_slots_and_attachments(
                 anim_slots=anim_data.slots,
                 visible_slots=default_visible_slots,
                 alpha_zero_slots=alpha_zero_slots,

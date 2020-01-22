@@ -48,25 +48,41 @@ class SpineVersion(object):
         # operator <
         _other = self.__force_cast_to_spine_version(other)
 
-        return self.major < _other.major and self.minor < _other.minor and self.patch < _other.patch
+        return (
+            self.major < _other.major
+            and self.minor < _other.minor
+            and self.patch < _other.patch
+        )
 
     def __gt__(self, other):
         # operator >
         _other = self.__force_cast_to_spine_version(other)
 
-        return self.major > _other.major and self.minor > _other.minor and self.patch > _other.patch
+        return (
+            self.major > _other.major
+            and self.minor > _other.minor
+            and self.patch > _other.patch
+        )
 
     def __le__(self, other):
         # operator <=
         _other = self.__force_cast_to_spine_version(other)
 
-        return self.major <= _other.major and self.minor <= _other.minor and self.patch <= _other.patch
+        return (
+            self.major <= _other.major
+            and self.minor <= _other.minor
+            and self.patch <= _other.patch
+        )
 
     def __ge__(self, other):
         # operator >=
         _other = self.__force_cast_to_spine_version(other)
 
-        return self.major >= _other.major and self.minor >= _other.minor and self.patch >= _other.patch
+        return (
+            self.major >= _other.major
+            and self.minor >= _other.minor
+            and self.patch >= _other.patch
+        )
 
     def __cmp__(self, other):
         """
@@ -100,7 +116,8 @@ class SpineVersion(object):
         matched = re.match(REGEX_TO_MATCH, version)
         if not matched or not has_correct_size:
             raise ValueError(
-                "{} is not a valid spine version. Needs to be of the following format 'mayor.minor.patch'".format(
+                "{} is not a valid spine version. Needs to be "
+                "of the following format 'mayor.minor.patch'".format(
                     version
                 )
             )
