@@ -1,5 +1,5 @@
 
-==============
+
 spine-json-lib
 ==============
 
@@ -9,7 +9,7 @@ This library was created to parse, edit and optimize spine animations from comma
 Installing
 ----------
 
-Install and update using `pip`_:
+Install and update using `pip`:
 
      pip install -U spine-json-lib
 
@@ -21,7 +21,7 @@ Features
 ----------------
 
 ```python
-from spine_animation_editor import SpineAnimationEditor
+from spine_json_lib import SpineAnimationEditor
 
 animation_editor = SpineAnimationEditor.from_json_file(
     json_path='path/to/animation.json'
@@ -48,9 +48,10 @@ animation_editor.scale_animation(scaleX=2.0, scaleY=2.0)
 Credits
 -------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+This package was created with Cookiecutter and the `audreyr/cookiecutter-pypackage` project template.
 
 Cookiecutter: https://github.com/audreyr/cookiecutter
+
 `audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
 
 Contributing
