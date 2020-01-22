@@ -3,9 +3,8 @@ python:
 - 3.8
 - 3.7
 - 3.6
-- 3.5
+script: pytest
 install: pip install -r requirements_dev.txt
-script: tox
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
