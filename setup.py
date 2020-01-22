@@ -57,7 +57,7 @@ setup(
     setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
-    url="https://github.com/socialpoint-labs/spine_json_lib",
-    version="0.0.3",
+    url="https://github.com/socialpoint-labs/spine-json-lib",
+    version="version='0.0.4'",
     zip_safe=False,
 )

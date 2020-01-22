@@ -2,7 +2,8 @@
 History
 =======
 
-0.0.1 (2020-01-21)
+0.0.4 (2020-01-22)
 ------------------
 
-* First release on PyPI.
+* Automatically package uploads on releases
+* blacked source code and flake8 passing
