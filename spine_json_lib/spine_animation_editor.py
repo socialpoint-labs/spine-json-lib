@@ -49,9 +49,7 @@ class SpineAnimationEditor(object):
     """
 
     def __init__(self, json_data):
-        self.spine_anim_data = JsonSpineAnimationData(
-            data=json_data
-        )
+        self.spine_anim_data = JsonSpineAnimationData(data=json_data)
 
         self.images_references = self.get_images_references()
 

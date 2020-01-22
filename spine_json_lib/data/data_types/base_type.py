@@ -12,14 +12,14 @@ SpineDataType = TypeVar("SpineDataType", bound="SpineData")
 class SpineData(object):
     # We want a Dict to hold information of DEFAULT_VALUES of attributes when parsing the json file
     # Attributes wont be serialized to json if they are equal to DEFAULT_VALUES[attrib_name]
-    DEFAULT_VALUES: Dict[str,Any] = None
+    DEFAULT_VALUES: Dict[str, Any] = None
 
     # Will hold a list of attributes unsupported in old version
     UNSUPPORTED_VALUES_OLD_VERSION: List[str] = None
 
     # We want a Dict to hold information of SPINE_3_8_DEFAULT_VALUES of attributes when parsing the json file
     # Attributes wont be serialized to json if they are equal to SPINE_3_8_DEFAULT_VALUES[attrib_name]
-    SPINE_3_8_DEFAULT_VALUES: Dict[str,Any] = None
+    SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = None
 
     def __new__(cls, *args, **kwargs):
         if cls.DEFAULT_VALUES is None:
@@ -56,7 +56,7 @@ class SpineData(object):
         else:
             return default
 
-    def default_values(self, version: Optional[SpineVersion]=None) -> Dict[str, Any]:
+    def default_values(self, version: Optional[SpineVersion] = None) -> Dict[str, Any]:
         if version is not None and version >= SPINE_3_8_VERSION:
             return copy.deepcopy(self.SPINE_3_8_DEFAULT_VALUES)
         return copy.deepcopy(self.DEFAULT_VALUES)
@@ -96,7 +96,9 @@ class SpineData(object):
                 )
 
     @staticmethod
-    def to_spine_data_ignoring_default_values(obj: SpineDataType, version: str) -> Dict[str, Any]:
+    def to_spine_data_ignoring_default_values(
+        obj: SpineDataType, version: str
+    ) -> Dict[str, Any]:
         result = {}
         default_values = obj.default_values(version=version)
         for k, v in obj.__dict__.items():

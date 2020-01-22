@@ -222,9 +222,7 @@ class SpineGraphParser(IGraphParser):
                 if skin_data:
                     slot_skinned = skin_data.get(_slot_data["name"], [])
 
-                    add_slot_skinned_to_graph(
-                        graph=graph, slot_skinned=slot_skinned
-                    )
+                    add_slot_skinned_to_graph(graph=graph, slot_skinned=slot_skinned)
 
             # Getting optional parents from slot
             parent_id = SpineGraphParser._to_graph_id(

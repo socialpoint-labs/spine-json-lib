@@ -4,7 +4,7 @@ from spine_json_lib.data.data_types.base_type import SpineData
 
 
 class Transform(SpineData):
-    DEFAULT_VALUES: Dict[str,Any] = {
+    DEFAULT_VALUES: Dict[str, Any] = {
         "name": "",
         "order": 0,
         "bone": "",
@@ -17,7 +17,7 @@ class Transform(SpineData):
         "shearX": 0,
         "shearY": 0,
     }
-    SPINE_3_8_DEFAULT_VALUES: Dict[str,Any] = DEFAULT_VALUES
+    SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = DEFAULT_VALUES
 
     def __init__(self, values=None):
         values = values if values is not None else {}
@@ -45,9 +45,9 @@ class Transform(SpineData):
 
 
 class TransformTimeline(SpineData):
-    DEFAULT_VALUES: Dict[str,Any] = {"curve": []}
+    DEFAULT_VALUES: Dict[str, Any] = {"curve": []}
 
-    SPINE_3_8_DEFAULT_VALUES: Dict[str,Any] = {
+    SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = {
         "curve": [],
         "time": 0,
         "c2": 0,

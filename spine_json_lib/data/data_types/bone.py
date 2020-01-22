@@ -4,7 +4,7 @@ from spine_json_lib.data.data_types.base_type import SpineData
 
 
 class Bone(SpineData):
-    DEFAULT_VALUES: Dict[str,Any] = {
+    DEFAULT_VALUES: Dict[str, Any] = {
         "x": 0,
         "y": 0,
         "scaleX": 1.0,
@@ -17,11 +17,11 @@ class Bone(SpineData):
         "length": 0,
         "inheritScale": False,
     }
-    SPINE_3_8_DEFAULT_VALUES: Dict[str,Any] = DEFAULT_VALUES
+    SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = DEFAULT_VALUES
 
     REQUIRED = ["name"]
 
-    def __init__(self, values: Dict[str, Any]=None) -> None:
+    def __init__(self, values: Dict[str, Any] = None) -> None:
         values = values or {}
 
         self.name: str = values.get("name")
@@ -47,10 +47,10 @@ class Bone(SpineData):
 
 
 class BoneTranslateAndShearKeyframe(SpineData):
-    DEFAULT_VALUES: Dict[str,Any] = {"curve": []}
+    DEFAULT_VALUES: Dict[str, Any] = {"curve": []}
     UNSUPPORTED_VALUES_OLD_VERSION = ["c2", "c3", "c4"]
 
-    SPINE_3_8_DEFAULT_VALUES: Dict[str,Any] = {
+    SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = {
         "curve": [],
         "angle": 0,
         "time": 0,
@@ -77,10 +77,10 @@ class BoneTranslateAndShearKeyframe(SpineData):
 
 
 class BoneRotateAndScaleKeyframe(SpineData):
-    DEFAULT_VALUES: Dict[str,Any] = {"curve": []}
+    DEFAULT_VALUES: Dict[str, Any] = {"curve": []}
     UNSUPPORTED_VALUES_OLD_VERSION = ["c2", "c3", "c4"]
 
-    SPINE_3_8_DEFAULT_VALUES: Dict[str,Any] = {
+    SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = {
         "curve": [],
         "angle": 0,
         "x": 1,
@@ -107,13 +107,13 @@ class BoneRotateAndScaleKeyframe(SpineData):
 
 
 class BoneTimeline(SpineData):
-    DEFAULT_VALUES: Dict[str,Any] = {
+    DEFAULT_VALUES: Dict[str, Any] = {
         "rotate": [],
         "translate": [],
         "scale": [],
         "shear": [],
     }
-    SPINE_3_8_DEFAULT_VALUES: Dict[str,Any] = DEFAULT_VALUES
+    SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = DEFAULT_VALUES
 
     def __init__(self, values=None):
         values = values or {}

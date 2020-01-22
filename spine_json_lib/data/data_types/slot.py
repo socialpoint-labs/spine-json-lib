@@ -4,11 +4,11 @@ from spine_json_lib.data.data_types.base_type import SpineData
 
 
 class Slot(SpineData):
-    DEFAULT_VALUES: Dict[str,Any] = {}
-    SPINE_3_8_DEFAULT_VALUES: Dict[str,Any] = DEFAULT_VALUES
+    DEFAULT_VALUES: Dict[str, Any] = {}
+    SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = DEFAULT_VALUES
     REQUIRED = ["name", "bone"]
 
-    def __init__(self, values: Dict[str, Any]=None) -> None:
+    def __init__(self, values: Dict[str, Any] = None) -> None:
         values = values or {}
 
         self.name = values.get("name")
@@ -22,10 +22,10 @@ class Slot(SpineData):
 
 
 class SlotKeyframe(SpineData):
-    DEFAULT_VALUES: Dict[str,Any] = {"curve": [], "name": None}
+    DEFAULT_VALUES: Dict[str, Any] = {"curve": [], "name": None}
     UNSUPPORTED_VALUES_OLD_VERSION = ["c2", "c3", "c4"]
 
-    SPINE_3_8_DEFAULT_VALUES: Dict[str,Any] = {
+    SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = {
         "curve": [],
         "name": None,
         "time": 0,
@@ -54,12 +54,12 @@ class SlotKeyframe(SpineData):
 
 
 class SlotTimeline(SpineData):
-    DEFAULT_VALUES: Dict[str,Any] = {
+    DEFAULT_VALUES: Dict[str, Any] = {
         "attachment": [],
         "color": [],
         "twoColor": [],
     }
-    SPINE_3_8_DEFAULT_VALUES: Dict[str,Any] = DEFAULT_VALUES
+    SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = DEFAULT_VALUES
 
     def __init__(self, values=None):
         values = values or {}

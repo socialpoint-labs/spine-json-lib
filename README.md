@@ -4,6 +4,7 @@ spine-json-lib
 ==============
 
 This library was created to parse, edit and optimize spine animations from command line.
+[![TravisCI](https://travis-ci.org/socialpoint-labs/spine-json-lib.svg?branch=master)](https://travis-ci.org/socialpoint-labs/spine-json-lib)
 
 
 Installing

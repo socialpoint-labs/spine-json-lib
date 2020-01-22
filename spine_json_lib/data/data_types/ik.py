@@ -17,7 +17,7 @@ class Ik(SpineData):
     }
     SPINE_3_8_DEFAULT_VALUES = DEFAULT_VALUES
 
-    def __init__(self, values:Dict[str, Any]=None) -> None:
+    def __init__(self, values: Dict[str, Any] = None) -> None:
         values = values if values is not None else {}
 
         self.name = values.get("name")
@@ -35,10 +35,10 @@ class Ik(SpineData):
 
 
 class IkTimeline(SpineData):
-    DEFAULT_VALUES: Dict[str,Any] = {"bendPositive": True, "curve": []}
+    DEFAULT_VALUES: Dict[str, Any] = {"bendPositive": True, "curve": []}
     UNSUPPORTED_VALUES_OLD_VERSION: List[str] = ["c2", "c3", "c4"]
 
-    SPINE_3_8_DEFAULT_VALUES: Dict[str,Any] = {
+    SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = {
         "time": 0,
         "bendPositive": True,
         "curve": [],
