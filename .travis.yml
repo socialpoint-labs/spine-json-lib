@@ -13,5 +13,5 @@ deploy:
     secure: C7gSn/eAaOq57aHeakceR2itmpwZH+nhEuz58MpgGjdOqIywx2TFyf9z6jlgxNZfDUQLwr2Qd+8oquZ806prM/uvXnB0D/7Xfk20UXilwf+MFtZUKsCqY7dnfjucXMlMi9FyzJ0DkahLhaW8qOS/Kd++S1peluKTjClHiLWAHQt3yz2mE3E3b1ELM6AS4N0HeEDkh0aXzOipdJvVwZOApVhnfORvYY6cxTRORvXA/iSqhC8Aa+PD0Gghs3Cp39fl37DY6cwMGHNlIccu07z3tRGPXTa4TZDWyBXaKsZukPSdrrgzRnvTq2METXq6wIObXByAWx3qo79tGUviUIjFEoNSNEYWkENUeVEvaqqsjaCX/uMzc1XDn+MnXWlLNe6U/XEJwIsZ5J0UoS4rdQ+Z76MVriaApZa2WkQMEPOULv48FYf6KTpIkzLewTOV+y0iNKVlrwQpV7m0Xy05kIv8TR2NCEDAD2s8o41kD3be2JuASEnfX9E2GTMVHCvF1CfMAOys6/f4RrWcXnXcvSK+L2EuHQ6RkzcQ8fdGPxnF8R8UOj1fXN4kDlpymHPEgwF2rvaTvPxjIvvGg9E30sZje89xoyQJ16qmMaUmHap7h5gsCArPTsI+Vw9lt9BCP19HcQiJo+XPs4t2XPU6B751n2ToJTjXhoBhIj29H2gDm+I=
   on:
     tags: true
-    repo: socialpoint-lab/spine-json-lib
+    repo: spine-json-lib
     python: 3.7
