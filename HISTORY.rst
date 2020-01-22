@@ -2,8 +2,8 @@
 History
 =======
 
-0.0.3 (2020-01-22)
+0.0.4 (2020-01-22)
 ------------------
 
-* Drop python 3.5
-* Fix dependencies
+* Automatically package uploads on releases
+* blacked source code and flake8 passing

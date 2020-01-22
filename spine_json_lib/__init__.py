@@ -1,3 +1,3 @@
-__version__ = '0.0.3'
+__version__ = '0.0.4'
 
 from spine_json_lib.spine_animation_editor import SpineAnimationEditor
