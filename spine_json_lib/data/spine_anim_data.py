@@ -1,7 +1,7 @@
 import copy
 import functools
 
-from typing import Dict, Any, List, Union, FrozenSet, TypeVar
+from typing import Dict, Any, List, Union, FrozenSet, TypeVar, Tuple
 
 from spine_json_lib.data.data_types.animation import Animation
 from spine_json_lib.data.data_types.bone import Bone
@@ -14,7 +14,7 @@ from spine_json_lib.data.data_types.skin import (
     SkinAttachment,
     SkinMesh,
 )
-from spine_json_lib.data.data_types.slot import Slot
+from spine_json_lib.data.data_types.slot import Slot, SlotTimeline
 from spine_json_lib.data.data_types.transform import Transform
 from spine_json_lib.data.data_types.base_type import SpineData
 from spine_json_lib.data.spine_exceptions import SpineJsonEditorError
@@ -194,6 +194,7 @@ class SpineAnimationData(SpineData):
     def get_visible_slots_and_attachments(
         self, anim_slots, visible_slots, alpha_zero_slots, no_attachment_slots
     ):
+        # type: (Dict[str, SlotTimeline], FrozenSet[str], List[str], List[str]) -> Tuple[FrozenSet[str], Dict[str, FrozenSet[str]]]
         anim_visible_slots = frozenset(visible_slots)
 
         anim_list_visible_slots = [
@@ -203,8 +204,14 @@ class SpineAnimationData(SpineData):
             slot.name: frozenset([slot.attachment]) for slot in anim_list_visible_slots
         }
 
+        slots_dict = {slot.name: slot for slot in self.slots if slot.name}
+
         for slot_id, slot_data in anim_slots.items():
-            slot_used_attachments = slot_data.get_used_attachments()
+            # By default we have to add the slot attachment base data as they are normally missing
+            # in the json info for optimization
+            slot_used_attachments = slot_data.get_used_attachments() + [
+                slots_dict[slot_id].attachment
+            ]
 
             # Discarding slot if:
             # 1 -) At least 1 animation it is not empty
