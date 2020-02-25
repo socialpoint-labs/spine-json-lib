@@ -11,6 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Python Semantic Release
+        if: github.repository == 'socialpoint-labs/spine-json-lib'
         uses: AlphaMycelium/psr-action@master
         with:
           pypi_username: jesdi
