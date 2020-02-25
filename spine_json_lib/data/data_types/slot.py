@@ -84,7 +84,11 @@ class SlotTimeline(SpineData):
             and not self.twoColor
             and (
                 len(self.attachment) == 0
-                or (len(self.attachment) == 1 and self.attachment[0].is_empty())
+                or (
+                    len(self.attachment) == 1
+                    and self.attachment[0].is_empty()
+                    and self.attachment[0].time == 0
+                )
             )
         )
 

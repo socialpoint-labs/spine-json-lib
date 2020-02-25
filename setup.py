@@ -1,8 +1,17 @@
 #!/usr/bin/env python
 
 """The setup script."""
+import io
+import re
 
 from setuptools import setup, find_packages
+
+with io.open('spine_json_lib/__init__.py', 'rt', encoding='utf8') as f:
+    version = re.search(
+        r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
+        f.read(),
+        re.MULTILINE
+    ).group(1)
 
 with open("README.md", encoding="utf-8") as readme_file:
     readme = readme_file.read()
@@ -10,7 +19,11 @@ with open("README.md", encoding="utf-8") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-requirements = ["deepdiff>=4.0.9"]
+with open("requirements.txt") as requirements_file:
+    requirements = requirements_file.readlines()
+
+with open("requirements_dev.txt") as requirements_file:
+    requirements_dev = requirements_file.readlines()
 
 setup_requirements = [
     "pytest-runner",
@@ -38,14 +51,7 @@ setup(
     entry_points={"console_scripts": ["spine_json_lib=spine_json_lib.cli:main",],},
     install_requires=requirements,
     extras_require={
-        "dev": [
-            "pytest>=4.6.5",
-            "flake8>=3.7.8",
-            "tox>=3.14.0",
-            "coverage>=4.5.4",
-            "Sphinx>=1.8.5",
-            "twine>=1.14.0",
-        ]
+        "dev": requirements_dev
     },
     license="MIT license",
     long_description=readme,
@@ -58,6 +64,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/socialpoint-labs/spine-json-lib",
-    version="0.0.6",
+    version=version,
     zip_safe=False,
 )
