@@ -10,13 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v1
-        with:
-          python-version: '3.7'
       - name: Python Semantic Release
         uses: AlphaMycelium/psr-action@master
-        if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
         with:
           pypi_username: jesdi
           pypi_password: ${{ secrets.pypi_password }}
