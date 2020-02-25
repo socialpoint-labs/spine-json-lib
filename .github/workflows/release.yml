@@ -14,6 +14,6 @@ jobs:
         if: github.repository == 'socialpoint-labs/spine-json-lib'
         uses: AlphaMycelium/psr-action@master
         with:
-          pypi_username: jesdi
+          pypi_username: __token__
           pypi_password: ${{ secrets.pypi_password }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
