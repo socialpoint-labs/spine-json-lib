@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - name: Python Semantic Release
         if: github.repository == 'socialpoint-labs/spine-json-lib'
         uses: AlphaMycelium/psr-action@master
