@@ -143,9 +143,8 @@ class SpineAnimationData(SpineData):
                 if isinstance(slot_data, SkinAttachment):
                     image_path = slot_data.path or slot_data.name
                     if image_path is not None:
-                        removed_attachments.update(
-                            {attachment_id: {slot_id: image_path}}
-                        )
+                        removed_attachments.setdefault(attachment_id, {})
+                        removed_attachments[attachment_id][slot_id] = image_path
                 elif isinstance(slot_data, SkinMesh):
                     mesh_image_path = slot_data.path or slot_data.name
                     removed_images.append(mesh_image_path)
