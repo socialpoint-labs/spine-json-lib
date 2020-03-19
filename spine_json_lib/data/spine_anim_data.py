@@ -19,7 +19,7 @@ from spine_json_lib.data.data_types.transform import Transform
 from spine_json_lib.data.data_types.base_type import SpineData
 from spine_json_lib.data.spine_exceptions import SpineJsonEditorError
 from spine_json_lib.data.spine_version_type import SpineVersion
-
+from spine_json_lib.data.constants import DEFAULT_SKIN_ID
 
 # Mypy forward declarations
 JsonSpineAnimationDataType = TypeVar(
@@ -274,6 +274,9 @@ class SpineAnimationData(SpineData):
 
         # Only not visible slots and the ones not being used can be erased
         for skin in self.skins:
+            if skin.name == DEFAULT_SKIN_ID:
+                continue
+
             for slot_id, attachment_data in skin.attachments.items():
                 attachments_ids = attachment_data.keys()
 
