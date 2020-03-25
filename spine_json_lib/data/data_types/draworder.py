@@ -54,16 +54,22 @@ class DrawOrderTimeline(SpineData):
 
     @staticmethod
     def _adjust_draw_oder_offset_with_erased_slots(
-        slots_to_be_removed, slots, slot_offsets
+            slots_to_be_removed, slots, slot_offsets, original_slots
     ):
+        plain_reordered_slots = [_slot.name for _slot in slots]
+        plain_original_slots = [_slot.name for _slot in original_slots]
         adjusted_draw_order_offsets = copy.deepcopy(slot_offsets)
-        for slot_to_remove in slots_to_be_removed:
-            found = False
-            for index, slot in enumerate(slots):
-                if slot.name == slot_to_remove:
-                    found = True
-                if found and slot.name in adjusted_draw_order_offsets.keys():
-                    adjusted_draw_order_offsets[slot.name].offset -= 1
+        for name, slot in slot_offsets.items():
+            end_index = plain_reordered_slots.index(slot.slot)
+            original_index = plain_original_slots.index(slot.slot)
+            for slot_to_remove in slots_to_be_removed:
+                _index = plain_reordered_slots.index(slot_to_remove)
+                if original_index <= _index <= end_index:
+                    adjusted_draw_order_offsets[name].offset -= 1
+                elif end_index <= _index <= original_index:
+                    adjusted_draw_order_offsets[name].offset += 1
+                else:
+                    pass
 
         return adjusted_draw_order_offsets
 
@@ -80,7 +86,7 @@ class DrawOrderTimeline(SpineData):
             slot_offsets, original_slots
         )
         adjusted_draw_order_offsets = self._adjust_draw_oder_offset_with_erased_slots(
-            slots_ids, new_slots_draw_order, slot_offsets
+            slots_ids, new_slots_draw_order, slot_offsets, original_slots
         )
         self.offsets = [
             offset
