@@ -132,7 +132,9 @@ class SpineAnimationEditor(object):
         - We cannot remove BONES because it affect the weight on meshes and the vertices
         information saved in the binary.
         """
-
+        # Save slots before removing. Needed to recalculate offsets when removing
+        # slots in a drawOrder array.
+        slots_before_removing = copy.deepcopy(self.spine_anim_data.data.slots)
         (
             slots_to_remove,
             attachments_to_remove,
@@ -153,7 +155,7 @@ class SpineAnimationEditor(object):
         self.spine_anim_data.data.set_default_values(self.spine_version)
 
         # Remove references in animations/skins/etc of elements erased
-        self.remove_slots(slots_ids=slots_to_remove)
+        self.remove_slots(slots_ids=slots_to_remove, original_slots=slots_before_removing)
         print("Removed slots {}".format(slots_to_remove))
 
         self.remove_attachments(attachments_ids=attachments_to_remove)
@@ -163,10 +165,10 @@ class SpineAnimationEditor(object):
         self._clean_images_references(attachments_ids=attachments_to_remove)
         return list(slots_to_remove), attachments_to_remove
 
-    def remove_slots(self, slots_ids):
+    def remove_slots(self, slots_ids, original_slots):
         self._clean_slots_in_skins(slots_ids)
         self._clean_slots_in_animations(slots_ids)
-        self._clean_draw_order_refs(slots_ids)
+        self._clean_draw_order_refs(slots_ids, original_slots)
 
     def remove_attachments(self, attachments_ids):
         self._clean_attachments_in_skins(attachment_ids=attachments_ids)
@@ -311,6 +313,6 @@ class SpineAnimationEditor(object):
 
             anim_data.slots = anim_data_slots
 
-    def _clean_draw_order_refs(self, slots_ids: List[str]) -> None:
+    def _clean_draw_order_refs(self, slots_ids: List[str], original_slots: List[Slot]) -> None:
         for animation in self.spine_anim_data.data.animations.values():
-            animation.remove_draw_order_with_ids(slots_ids=slots_ids)
+            animation.remove_draw_order_with_ids(slots_ids=slots_ids, original_slots=original_slots)

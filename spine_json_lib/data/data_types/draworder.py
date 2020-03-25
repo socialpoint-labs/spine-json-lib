@@ -1,3 +1,5 @@
+import copy
+from collections import OrderedDict
 from typing import List, Dict, Any
 
 from spine_json_lib.data.data_types.base_type import SpineData
@@ -30,7 +32,58 @@ class DrawOrderTimeline(SpineData):
 
         super(DrawOrderTimeline, self).__init__(values)
 
-    def remove_offsets_with_ids(self, slots_ids):
+    @staticmethod
+    def _reorder_slots_with_offset(slot_offsets, original_slots):
+        new_slots_draw_order = copy.deepcopy(original_slots)
+        operations = []
+        pop_indexes = []
+        for index, slot in enumerate(original_slots):
+            if slot.name in slot_offsets:
+                new_index = index + slot_offsets[slot.name].offset
+                operations.append({"slot": slot, "new_index": new_index})
+                pop_indexes.append(index)
+
+        for _index in reversed(pop_indexes):
+            new_slots_draw_order.pop(_index)
+
+        sorted_operations = sorted(operations, key=lambda x: x["new_index"])
+        for cached in sorted_operations:
+            new_slots_draw_order.insert(cached["new_index"], cached["slot"])
+
+        return new_slots_draw_order
+
+    @staticmethod
+    def _adjust_draw_oder_offset_with_erased_slots(
+        slots_to_be_removed, slots, slot_offsets
+    ):
+        adjusted_draw_order_offsets = copy.deepcopy(slot_offsets)
+        for slot_to_remove in slots_to_be_removed:
+            found = False
+            for index, slot in enumerate(slots):
+                if slot.name == slot_to_remove:
+                    found = True
+                if found and slot.name in adjusted_draw_order_offsets.keys():
+                    adjusted_draw_order_offsets[slot.name].offset -= 1
+
+        return adjusted_draw_order_offsets
+
+    def remove_offsets_with_ids(self, slots_ids, original_slots):
+        """
+        When we remove a slot, the position of the slot removed could interfere directly
+        to the offsets saved in the drawOrder lists of every animation raising
+        an ArrayIndexOutOfBoundsException on loading time in Spine.
+        We need to update the drawOrder offsets bearing in mind the slots removed
+        and the new position in the slots array.
+        """
+        slot_offsets = OrderedDict({offset.slot: offset for offset in self.offsets})
+        new_slots_draw_order = self._reorder_slots_with_offset(
+            slot_offsets, original_slots
+        )
+        adjusted_draw_order_offsets = self._adjust_draw_oder_offset_with_erased_slots(
+            slots_ids, new_slots_draw_order, slot_offsets
+        )
         self.offsets = [
-            offset for offset in self.offsets if offset.slot not in slots_ids
+            offset
+            for offset in adjusted_draw_order_offsets.values()
+            if offset.slot not in slots_ids
         ]
