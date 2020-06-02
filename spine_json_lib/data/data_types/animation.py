@@ -20,7 +20,7 @@ class Animation(SpineData):
         "events": [],
         "transform": {},
         "deform": {},
-        "paths": {},
+        "path": {},
     }
     SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = DEFAULT_VALUES
 
@@ -55,8 +55,8 @@ class Animation(SpineData):
             for key in values.get("transform", {})
         }
 
-        self.paths: Dict[str, Dict[str, List[PathTimeline]]] = self.parse_path(
-            values.get("paths", {})
+        self.path: Dict[str, Dict[str, List[PathTimeline]]] = self.parse_path(
+            values.get("path", {})
         )
         self.deform: Dict[str, Dict[str, Dict[str, List[Deform]]]] = self.parse_deform(
             values.get("deform", {})
