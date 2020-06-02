@@ -37961,35 +37961,35 @@
                     "offsets": [
                         {
                             "slot": "fingers_r",
-                            "offset": 14
+                            "offset": 13
                         },
                         {
                             "slot": "finger_1_r",
-                            "offset": 14
+                            "offset": 13
                         },
                         {
                             "slot": "sword_2",
-                            "offset": 14
+                            "offset": 13
                         },
                         {
                             "slot": "sword_1",
-                            "offset": 14
+                            "offset": 13
                         },
                         {
                             "slot": "bracelet_back",
-                            "offset": 14
+                            "offset": 13
                         },
                         {
                             "slot": "hand_palm_r",
-                            "offset": 14
+                            "offset": 13
                         },
                         {
                             "slot": "forearm_r",
-                            "offset": 14
+                            "offset": 13
                         },
                         {
                             "slot": "bracelet_front",
-                            "offset": 14
+                            "offset": 13
                         }
                     ]
                 },

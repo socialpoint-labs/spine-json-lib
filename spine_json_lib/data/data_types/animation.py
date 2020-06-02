@@ -91,6 +91,6 @@ class Animation(SpineData):
             for k, v in deform_data.items()
         }
 
-    def remove_draw_order_with_ids(self, slots_ids):
+    def remove_draw_order_with_ids(self, slots_ids, original_slots):
         for draw_order in self.drawOrder:
-            draw_order.remove_offsets_with_ids(slots_ids)
+            draw_order.remove_offsets_with_ids(slots_ids, original_slots)
