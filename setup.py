@@ -6,11 +6,9 @@ import re
 
 from setuptools import setup, find_packages
 
-with io.open('spine_json_lib/__init__.py', 'rt', encoding='utf8') as f:
+with io.open("spine_json_lib/__init__.py", "rt", encoding="utf8") as f:
     version = re.search(
-        r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
-        f.read(),
-        re.MULTILINE
+        r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', f.read(), re.MULTILINE
     ).group(1)
 
 with open("README.md", encoding="utf-8") as readme_file:
@@ -19,11 +17,12 @@ with open("README.md", encoding="utf-8") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-with open("requirements.txt") as requirements_file:
-    requirements = requirements_file.readlines()
 
-with open("requirements_dev.txt") as requirements_file:
-    requirements_dev = requirements_file.readlines()
+requirements_dev = [
+    "flake8>=3.7.8",
+    "tox>=3.14.0",
+    "coverage>=4.5.4",
+]
 
 setup_requirements = [
     "pytest-runner",
@@ -31,6 +30,8 @@ setup_requirements = [
 
 test_requirements = [
     "pytest>=3",
+    "deepdiff>4.0",
+    "pip>=15.0.0",
 ]
 
 setup(
@@ -49,10 +50,8 @@ setup(
     ],
     description="Library to parse and edit spine animations from command line",
     entry_points={"console_scripts": ["spine_json_lib=spine_json_lib.cli:main",],},
-    install_requires=requirements,
-    extras_require={
-        "dev": requirements_dev
-    },
+    install_requires=[],
+    extras_require={"dev": requirements_dev},
     license="MIT license",
     long_description=readme,
     long_description_content_type="text/markdown",
