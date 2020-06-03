@@ -9,10 +9,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Python Semantic Release
         if: github.repository == 'socialpoint-labs/spine-json-lib'
-        uses: AlphaMycelium/psr-action@master
+        uses: relekang/python-semantic-release@master
         with:
           pypi_username: __token__
           pypi_password: ${{ secrets.pypi_password }}
