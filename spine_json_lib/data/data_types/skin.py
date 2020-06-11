@@ -144,6 +144,7 @@ class SkinPath(SpineData):
         self.lengths: List[float] = values.get("lengths")
         self.vertexCount: int = values.get("vertexCount")
         self.type: str = values.get("type")
+        self.name: str = values.get("name")
         self.vertices: List[float] = values.get("vertices")
         self.color: str = values.get("color")
         self.closed = values.get("closed")
