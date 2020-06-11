@@ -122,8 +122,9 @@ class SkinMesh(SpineData):
         self.edges: List[int] = values.get("edges")
         self.type: str = values.get("type")
         self.triangles: List[int] = values.get("triangles")
-        self.name = values.get("name")
-        self.path = values.get("path")
+        self.name: str = values.get("name")
+        self.path: str = values.get("path")
+        self.color: str = values.get("color")
 
         super(SkinMesh, self).__init__(values)
 
@@ -144,6 +145,7 @@ class SkinPath(SpineData):
         self.lengths: List[float] = values.get("lengths")
         self.vertexCount: int = values.get("vertexCount")
         self.type: str = values.get("type")
+        self.name: str = values.get("name")
         self.vertices: List[float] = values.get("vertices")
         self.color: str = values.get("color")
         self.closed = values.get("closed")
