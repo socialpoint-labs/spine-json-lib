@@ -15,35 +15,65 @@ class SpineGraphContainer(object):
             json_data=spine_json_data, node_factory=SpineNodeFactory()
         )
 
-    def get_leaf_slots(self) -> List[str]:
+    def get_heads_with_type(self, node_type):
+        heads_nodes = self.graph.get_heads_id()
+
+        return list(
+            filter(
+                lambda n: self.graph.get_node(n).node_type == node_type,
+                heads_nodes,
+            )
+        )
+
+    def remove_heads_of_type(self, type_name) -> List[str]:
+        """
+        Remove from graph every node that is a head of type @type_name recursively
+        and return the list of ids
+        """
+        nodes_removed = []
+        root_node = self.get_heads_with_type(node_type=type_name)
+        while root_node:
+            nodes_removed += [
+                SpineGraphParser._to_base_id(
+                    node_type_name=type_name,
+                    graph_id=self.graph.remove_node_by_id(s_id).id,
+                )
+                for s_id in root_node
+            ]
+
+            root_node = self.get_heads_with_type(node_type=type_name)
+        return nodes_removed
+
+    def get_leafs_of_type(self, node_type) -> List[str]:
         tail_nodes = self.graph.get_tails_id()
 
         leaf_slots = list(
             filter(
-                lambda n: self.graph.get_node(n).node_type == NodeType.SLOT.name,
+                lambda n: self.graph.get_node(n).node_type == node_type,
                 tail_nodes,
             )
         )
 
         return leaf_slots
 
-    def remove_empty_slots(self) -> Tuple[List[str], List[str]]:
+    def remove_leafs_of_type(self, type_name) -> List[str]:
         """
-        Removing from graph every slot leaves of graph and return it
+        Removing from graph every node leaves of type @type_name recursively
+        and return the list of ids
         """
-        slots_removed = []
-        empty_slots = self.get_leaf_slots()
-        while empty_slots:
-            slots_removed += [
+        nodes_removed = []
+        leaf_nodes = self.get_leafs_of_type(node_type=type_name)
+        while leaf_nodes:
+            nodes_removed += [
                 SpineGraphParser._to_base_id(
-                    node_type_name=NodeType.SLOT.name,
+                    node_type_name=type_name,
                     graph_id=self.graph.remove_node_by_id(s_id).id,
                 )
-                for s_id in empty_slots
+                for s_id in leaf_nodes
             ]
 
-            empty_slots = self.get_leaf_slots()
-        return slots_removed
+            leaf_nodes = self.get_leafs_of_type(node_type=type_name)
+        return nodes_removed
 
     def remove_attachment(self, attachment_id: str) -> SpamNode:
         attachment_node = self.graph.get_node(attachment_id)
