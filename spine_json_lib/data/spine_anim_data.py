@@ -91,10 +91,6 @@ class SpineAnimationData(SpineData):
                 return bone
         return None
 
-    @staticmethod
-    def parse_skins_from_version(version: SpineVersion, data_skins) -> List[Skin38]:
-        return [Skin38(value) for value in data_skins]
-
     def get_skin(self, skin_id):
         for skin in self.skins:
             if skin.name == skin_id:
@@ -278,17 +274,8 @@ class SpineAnimationData(SpineData):
                 attachments_ids = attachment_data.keys()
 
                 for attachment_id in attachments_ids:
-                    path_attachment = None
-                    if hasattr(attachment_data[attachment_id], "path"):
-                        path_attachment = attachment_data[attachment_id].path
-                    attachment_unique_id = (
-                        path_attachment
-                        or attachment_data[attachment_id].name
-                        or attachment_id
-                    )
-
                     if attachment_id not in l_attachments_used:
-                        attachments_to_remove |= frozenset([attachment_unique_id])
+                        attachments_to_remove |= frozenset([attachment_id])
 
         invisible_slots = slots_set - visible_slots
         return invisible_slots, attachments_to_remove

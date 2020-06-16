@@ -87,17 +87,17 @@ class SpineAnimationEditor(object):
         images_to_remove = []
 
         for img in images_skins_refs:
-            attachment_graph_id = SpineGraphParser._to_graph_id(
-                node_type_name=NodeType.ATTACHMENT.name, node_base_id=img
+            image_graph_id = SpineGraphParser._to_graph_id(
+                node_type_name=NodeType.IMAGE.name, node_base_id=img
             )
-            if not self.spine_graph.graph.get_node(attachment_graph_id):
+            if not self.spine_graph.graph.get_node(image_graph_id):
                 images_to_remove.append(img)
 
         if is_safe_mode:
             removed_data = [], []
         else:
             removed_data = self.clean_animation()
-        self._clean_images_references(attachments_ids=images_to_remove)
+        self._clean_images_references(images_ids=images_to_remove)
 
         return removed_data, images_to_remove
 
@@ -149,11 +149,12 @@ class SpineAnimationEditor(object):
             attachments_to_remove,
         ) = self.spine_anim_data.data.get_unused_slots_and_attachments()
         self.spine_graph.remove_slots(list(slots_to_remove))
+
         self.spine_graph.remove_attachments(list(attachments_to_remove))
 
         # Removing leaves that are slots, which means
         # they don't have any attachment as children and can be removed from animation
-        leaf_slots = self.spine_graph.remove_empty_slots()
+        leaf_slots = self.spine_graph.remove_leafs_of_type(NodeType.SLOT.name)
         slots_to_remove = list(slots_to_remove | frozenset(leaf_slots))
 
         # Convert spine graph back to json data
@@ -171,9 +172,10 @@ class SpineAnimationEditor(object):
 
         self.remove_attachments(attachments_ids=attachments_to_remove)
         print("Removed attachments {}".format(attachments_to_remove))
+        images_node = self.spine_graph.remove_heads_of_type(NodeType.IMAGE.name)
 
         # Remove reference to region attachments in images json file
-        self._clean_images_references(attachments_ids=attachments_to_remove)
+        self._clean_images_references(images_ids=images_node)
         return list(slots_to_remove), attachments_to_remove
 
     def remove_slots(self, slots_ids, original_slots):
@@ -262,11 +264,11 @@ class SpineAnimationEditor(object):
                 )
             )
 
-    def _clean_images_references(self, attachments_ids: List[str]) -> None:
+    def _clean_images_references(self, images_ids: List[str]) -> None:
         copy_json = copy.deepcopy(self.images_references)
         removed_images = []
         for img_id, img_abs_path in self.images_references.items():
-            if img_id in attachments_ids:
+            if img_id in images_ids:
                 removed_images.append(img_id)
                 del copy_json[img_id]
 
@@ -294,8 +296,7 @@ class SpineAnimationEditor(object):
 
             for slot_id, slot_data in data.attachments.items():
                 for attachment_id in slot_data.keys():
-                    name_attachment = slot_data[attachment_id].name or attachment_id
-                    if name_attachment in attachment_ids:
+                    if attachment_id in attachment_ids:
                         del data_current_skin.attachments[slot_id][attachment_id]
 
         self.spine_anim_data.data.skins = skins_data

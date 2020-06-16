@@ -87,6 +87,14 @@ class SpineNodeFactory(INodeFactory):
                 ],
                 order=order,
             )
+        elif node_type == NodeType.IMAGE.name:
+            created_node = SpamNode(
+                id_value=node_id,
+                data=node_data,
+                node_type=NodeType.IMAGE.name,
+                children_types_forbidden=[_type.name for _type in list(NodeType)],
+                order=order,
+            )
 
         return created_node
 
@@ -134,7 +142,7 @@ class SpineGraphParser(IGraphParser):
 
         for node_id, node in graph._nodes.items():
             # IMPORTANT: We ignore attachments when generating json from graph
-            if node.node_type is NodeType.ATTACHMENT.name:
+            if node.node_type is NodeType.ATTACHMENT.name or node.node_type is NodeType.IMAGE.name:
                 continue
 
             node_type_json_key = SPINE_JSON_MAPPED_IDS[str(node.node_type)]
@@ -218,7 +226,7 @@ class SpineGraphParser(IGraphParser):
             attachment_data = SpineNodeData(
                 node_data=_data,
                 node_type=NodeType.ATTACHMENT,
-                node_base_id=_data.get("path") or _data.get("name") or  _id,
+                node_base_id=_id,
             )
 
             if graph.get_node(attachment_data.node_id) is None:
@@ -227,6 +235,23 @@ class SpineGraphParser(IGraphParser):
                     node_id=attachment_data.node_id,
                     node_data=attachment_data.node_data,
                 )
+
+                image_id = _data.get("path") or _data.get("name") or _id
+                image_node_data = SpineNodeData(
+                    node_data={},
+                    node_type=NodeType.IMAGE,
+                    node_base_id=image_id
+                )
+
+                if graph.get_node(image_node_data.node_id) is None:
+                    graph.add_node(
+                        node_type=image_node_data.node_type,
+                        node_id=image_node_data.node_id,
+                        node_data=image_node_data.node_data,
+                    )
+
+                graph.add_edge(attachment_data.node_id, image_node_data.node_id)
+
             graph.add_edge(slot_parent.node_id, attachment_data.node_id)
 
     @staticmethod

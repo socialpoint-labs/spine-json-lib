@@ -193,7 +193,7 @@ class TestSpineAnimationEditor:
                 "fx_purple_smoke_5",
                 "fx_purple_smoke_4",
                 "fx_purple_smoke_7",
-                "fx_purple_smoke_basis",
+                "fx/fx_purple_smoke_basis",
                 "fx_purple_smoke_1",
                 "fx_purple_smoke_0",
                 "fx_purple_smoke_3",
