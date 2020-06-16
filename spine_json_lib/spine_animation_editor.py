@@ -63,7 +63,7 @@ class SpineAnimationEditor(object):
 
         return SpineAnimationEditor(json_data=spine_json_data)
 
-    def erase_skins(self, skins_to_erase):
+    def erase_skins(self, skins_to_erase, is_safe_mode=False):
         images_skins_refs = []
         skin_attachments_removed = {}
         for skin_name in skins_to_erase:
@@ -93,13 +93,19 @@ class SpineAnimationEditor(object):
             if not self.spine_graph.graph.get_node(attachment_graph_id):
                 images_to_remove.append(img)
 
-        removed_data = self.clean_animation()
+        if is_safe_mode:
+            removed_data = [], []
+        else:
+            removed_data = self.clean_animation()
         self._clean_images_references(attachments_ids=images_to_remove)
 
         return removed_data, images_to_remove
 
     def erase_animations(
-        self, animations_to_erase: List[str], strict_mode: bool = True
+        self,
+        animations_to_erase: List[str],
+        strict_mode: bool = True,
+        is_safe_mode=False,
     ) -> ErasingResult:
         if self.images_references is None:
             raise SpineJsonEditorError(
@@ -118,7 +124,10 @@ class SpineAnimationEditor(object):
         # After removing animations we have to clean references to slots/attachments
         # that were only used only in the part of the animations removed
         # or are not visible anymore
-        removed_data = self.clean_animation()
+        if is_safe_mode:
+            removed_data = [], []
+        else:
+            removed_data = self.clean_animation()
         return ErasingResult(self.spine_anim_data.to_json_data(), removed_data)
 
     def clean_animation(self):
@@ -155,7 +164,9 @@ class SpineAnimationEditor(object):
         self.spine_anim_data.data.set_default_values(self.spine_version)
 
         # Remove references in animations/skins/etc of elements erased
-        self.remove_slots(slots_ids=slots_to_remove, original_slots=slots_before_removing)
+        self.remove_slots(
+            slots_ids=slots_to_remove, original_slots=slots_before_removing
+        )
         print("Removed slots {}".format(slots_to_remove))
 
         self.remove_attachments(attachments_ids=attachments_to_remove)
@@ -313,6 +324,10 @@ class SpineAnimationEditor(object):
 
             anim_data.slots = anim_data_slots
 
-    def _clean_draw_order_refs(self, slots_ids: List[str], original_slots: List[Slot]) -> None:
+    def _clean_draw_order_refs(
+        self, slots_ids: List[str], original_slots: List[Slot]
+    ) -> None:
         for animation in self.spine_anim_data.data.animations.values():
-            animation.remove_draw_order_with_ids(slots_ids=slots_ids, original_slots=original_slots)
+            animation.remove_draw_order_with_ids(
+                slots_ids=slots_ids, original_slots=original_slots
+            )
