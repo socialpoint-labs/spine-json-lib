@@ -43,6 +43,7 @@ class IkTimeline(SpineData):
         "bendPositive": True,
         "stretch": False,
         "curve": [],
+        "compress": False,
         "c2": 0,
         "c3": 1,
         "c4": 1,
@@ -58,6 +59,7 @@ class IkTimeline(SpineData):
         self.c2 = values.get("c2")
         self.c3 = values.get("c3")
         self.c4 = values.get("c4")
+        self.compress = values.get("compress")
         self.stretch = values.get("stretch")
 
         super(IkTimeline, self).__init__(values)
