@@ -54,22 +54,26 @@ class DrawOrderTimeline(SpineData):
 
     @staticmethod
     def _adjust_draw_oder_offset_with_erased_slots(
-            slots_to_be_removed, slots, slot_offsets, original_slots
+        slots_to_be_removed, slots, slot_offsets, original_slots
     ):
-        plain_reordered_slots = [_slot.name for _slot in slots]
-        plain_original_slots = [_slot.name for _slot in original_slots]
+        original_slots_names = [_slot.name for _slot in original_slots]
+        # Filter out slots we want to remove
+        clean_original_slots = list(
+            filter(lambda x: x not in slots_to_be_removed, original_slots_names)
+        )
+
+        reordered_slots_names = [_slot.name for _slot in slots]
+        # Filter out slots we want to remove
+        clean_reordered_slots = list(
+            filter(lambda x: x not in slots_to_be_removed, reordered_slots_names)
+        )
+
         adjusted_draw_order_offsets = copy.deepcopy(slot_offsets)
-        for name, slot in slot_offsets.items():
-            end_index = plain_reordered_slots.index(slot.slot)
-            original_index = plain_original_slots.index(slot.slot)
-            for slot_to_remove in slots_to_be_removed:
-                _index = plain_reordered_slots.index(slot_to_remove)
-                if original_index <= _index <= end_index:
-                    adjusted_draw_order_offsets[name].offset -= 1
-                elif end_index <= _index <= original_index:
-                    adjusted_draw_order_offsets[name].offset += 1
-                else:
-                    pass
+
+        for name, slot_offset in adjusted_draw_order_offsets.items():
+            index_original = clean_original_slots.index(name)
+            index_final = clean_reordered_slots.index(name)
+            slot_offset.offset = index_final - index_original
 
         return adjusted_draw_order_offsets
 
@@ -85,6 +89,7 @@ class DrawOrderTimeline(SpineData):
         new_slots_draw_order = self._reorder_slots_with_offset(
             slot_offsets, original_slots
         )
+
         adjusted_draw_order_offsets = self._adjust_draw_oder_offset_with_erased_slots(
             slots_ids, new_slots_draw_order, slot_offsets, original_slots
         )

@@ -119,7 +119,6 @@ class TestSpineAnimationEditor:
         clean_up_removed_data, skin_related_images = animation_editor.erase_skins(
             skins_to_erase=["basic"]
         )
-        # import ipdb; ipdb.set_trace()
         assert sorted(skin_related_images) == sorted(
             [
                 "sherezar/belt_l",
