@@ -171,7 +171,18 @@ class SpineAnimationEditor(object):
         print("Removed slots {}".format(slots_to_remove))
 
         self.remove_attachments(attachments_ids=attachments_to_remove)
-        print("Removed attachments {}".format(attachments_to_remove))
+        detached_attachments = self.spine_graph.remove_heads_of_type(
+            NodeType.ATTACHMENT.name
+        )
+        detached_attachments += self.spine_graph.remove_leafs_of_type(
+            NodeType.ATTACHMENT.name
+        )
+        print(
+            "Removed attachments {}".format(
+                list(attachments_to_remove) + detached_attachments
+            )
+        )
+
         images_node = self.spine_graph.remove_heads_of_type(NodeType.IMAGE.name)
 
         # Remove reference to region attachments in images json file
