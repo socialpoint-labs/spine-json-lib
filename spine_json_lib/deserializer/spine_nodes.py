@@ -236,22 +236,21 @@ class SpineGraphParser(IGraphParser):
                     node_data=attachment_data.node_data,
                 )
 
-                image_id = _data.get("path") or _data.get("name") or _id
-                image_node_data = SpineNodeData(
-                    node_data={},
-                    node_type=NodeType.IMAGE,
-                    node_base_id=image_id
+            image_id = _data.get("path") or _data.get("name") or _id
+            image_node_data = SpineNodeData(
+                node_data={},
+                node_type=NodeType.IMAGE,
+                node_base_id=image_id
+            )
+
+            if graph.get_node(image_node_data.node_id) is None:
+                graph.add_node(
+                    node_type=image_node_data.node_type,
+                    node_id=image_node_data.node_id,
+                    node_data=image_node_data.node_data,
                 )
 
-                if graph.get_node(image_node_data.node_id) is None:
-                    graph.add_node(
-                        node_type=image_node_data.node_type,
-                        node_id=image_node_data.node_id,
-                        node_data=image_node_data.node_data,
-                    )
-
-                graph.add_edge(attachment_data.node_id, image_node_data.node_id)
-
+            graph.add_edge(attachment_data.node_id, image_node_data.node_id)
             graph.add_edge(slot_parent.node_id, attachment_data.node_id)
 
     @staticmethod
