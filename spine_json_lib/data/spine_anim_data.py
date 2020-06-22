@@ -204,9 +204,9 @@ class SpineAnimationData(SpineData):
         for slot_id, slot_data in anim_slots.items():
             # By default we have to add the slot attachment base data as they are normally missing
             # in the json info for optimization
-            slot_used_attachments = slot_data.get_used_attachments() + [
-                slots_dict[slot_id].attachment
-            ]
+            slot_used_attachments = slot_data.get_used_attachments()
+            if slots_dict[slot_id].attachment is not None:
+                slot_used_attachments.append(slots_dict[slot_id].attachment)
 
             # Discarding slot if:
             # 1 -) At least 1 animation it is not empty
