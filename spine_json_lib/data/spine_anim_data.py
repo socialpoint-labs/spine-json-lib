@@ -141,7 +141,7 @@ class SpineAnimationData(SpineData):
                     if image_path is not None:
                         removed_attachments.setdefault(attachment_id, {})
                         removed_attachments[attachment_id][slot_id] = image_path
-                elif isinstance(slot_data, SkinMesh):
+                elif isinstance(slot_data, (SkinMesh, SkinLinkedMesh)):
                     mesh_image_path = slot_data.path or slot_data.name
                     removed_images.append(mesh_image_path)
                 elif hasattr(slot_data, "path") and slot_data.path is not None:
