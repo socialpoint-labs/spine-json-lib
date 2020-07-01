@@ -71,11 +71,17 @@ class DrawOrderTimeline(SpineData):
         adjusted_draw_order_offsets = copy.deepcopy(slot_offsets)
 
         for name, slot_offset in adjusted_draw_order_offsets.items():
+            if name in slots_to_be_removed:
+                continue
             index_original = clean_original_slots.index(name)
             index_final = clean_reordered_slots.index(name)
             slot_offset.offset = index_final - index_original
 
-        return adjusted_draw_order_offsets
+        return [
+            offset
+            for offset in adjusted_draw_order_offsets.values()
+            if offset.slot not in slots_to_be_removed
+        ]
 
     def remove_offsets_with_ids(self, slots_ids, original_slots):
         """
@@ -90,11 +96,9 @@ class DrawOrderTimeline(SpineData):
             slot_offsets, original_slots
         )
 
-        adjusted_draw_order_offsets = self._adjust_draw_oder_offset_with_erased_slots(
-            slots_ids, new_slots_draw_order, slot_offsets, original_slots
+        self.offsets = self._adjust_draw_oder_offset_with_erased_slots(
+            slots_to_be_removed=slots_ids,
+            slots=new_slots_draw_order,
+            slot_offsets=slot_offsets,
+            original_slots=original_slots,
         )
-        self.offsets = [
-            offset
-            for offset in adjusted_draw_order_offsets.values()
-            if offset.slot not in slots_ids
-        ]
