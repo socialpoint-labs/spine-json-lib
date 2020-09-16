@@ -80,7 +80,7 @@ class DrawOrderTimeline(SpineData):
         return [
             offset
             for offset in adjusted_draw_order_offsets.values()
-            if offset.slot not in slots_to_be_removed
+            if offset.slot not in slots_to_be_removed and offset.offset != 0
         ]
 
     def remove_offsets_with_ids(self, slots_ids, original_slots):
