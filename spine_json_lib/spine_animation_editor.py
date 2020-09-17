@@ -310,6 +310,11 @@ class SpineAnimationEditor(object):
                     if attachment_id in attachment_ids:
                         del data_current_skin.attachments[slot_id][attachment_id]
 
+            for animation in self.spine_anim_data.data.animations.values():
+                animation.remove_deforms_with_attachments_on_skin(
+                    attachments_ids=attachment_ids, skin_id=data.name
+                )
+
         self.spine_anim_data.data.skins = skins_data
 
     def _clean_attachments_in_slots(self, attachments_ids: List[str]) -> None:
@@ -333,8 +338,8 @@ class SpineAnimationEditor(object):
             for slot_id, slots_data in anim_data.slots.items():
                 if slot_id in slots_ids:
                     del anim_data_slots[slot_id]
-
             anim_data.slots = anim_data_slots
+            anim_data.remove_deforms_using_slots(slots_ids)
 
     def _clean_draw_order_refs(
         self, slots_ids: List[str], original_slots: List[Slot]

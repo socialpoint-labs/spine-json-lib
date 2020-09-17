@@ -94,3 +94,24 @@ class Animation(SpineData):
     def remove_draw_order_with_ids(self, slots_ids, original_slots):
         for draw_order in self.drawOrder:
             draw_order.remove_offsets_with_ids(slots_ids, original_slots)
+
+    def remove_deforms_using_slots(self, slots_ids):
+        self.deform = {
+            k: {k2: v2 for k2, v2 in v.items() if k2 not in slots_ids}
+            for k, v in self.deform.items()
+        }
+
+    def remove_deforms_with_attachments_on_skin(self, attachments_ids, skin_id):
+        skin_deform = self.deform.get(skin_id)
+
+        if skin_deform is None:
+            return
+
+        self.deform[skin_id] = {
+            k2: {
+                k3: deform_list
+                for k3, deform_list in v2.items()
+                if k3 not in attachments_ids
+            }
+            for k2, v2 in skin_deform.items()
+        }
