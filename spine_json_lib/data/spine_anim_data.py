@@ -85,6 +85,38 @@ class SpineAnimationData(SpineData):
 
         super(SpineAnimationData, self).__init__(_data)
 
+    def get_slot(self, slot_id: str) -> Union[Slot, None]:
+        for slot in self.slots:
+            if slot.name == slot_id:
+                return slot
+        return None
+
+    def get_bone_custom_scale_recursive(self, bone: Bone) -> float:
+        """
+        Return custom 'scale' set in name of a bone and any of the parents bone
+        In case of not found custom scale will return 1.0
+        """
+        result_scale = 1.0
+        iter_bone = bone
+
+        # This will iterate every bone up in tree looking for 'scale' until we found the root
+        while iter_bone.name != "root":
+            b_scale = iter_bone.get_scale_in_name()
+            result_scale *= b_scale
+            iter_bone = self.get_bone(iter_bone.parent)
+        return result_scale
+
+    def get_slot_custom_scale(self, slot: Slot) -> float:
+        """
+        Return custom 'scale' set in name of an slot and any of the parents bone
+        In case of not found custom scale will return 1.0
+        """
+        slot_bone = self.get_bone(slot.bone)
+        slot_scale = slot.get_scale_in_name()
+        bone_scale = self.get_bone_custom_scale_recursive(slot_bone)
+
+        return slot_scale * bone_scale
+
     def get_bone(self, bone_id: str) -> Union[Bone, None]:
         for bone in self.bones:
             if bone.name == bone_id:

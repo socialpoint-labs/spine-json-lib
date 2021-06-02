@@ -1,6 +1,7 @@
 from typing import Dict, Any, List
 
 from spine_json_lib.data.data_types.base_type import SpineData
+from spine_json_lib.utils import get_tags_from_name, SCALE_TAG
 
 
 class Bone(SpineData):
@@ -41,9 +42,13 @@ class Bone(SpineData):
 
         super(Bone, self).__init__(values)
 
-    def scale(self, scaleX, scaleY):
+    def scale(self, scaleX: float, scaleY: float) -> None:
         self.scaleX *= scaleX
         self.scaleY *= scaleY
+
+    def get_scale_in_name(self) -> float:
+        tags = get_tags_from_name(self.name)
+        return tags.get(SCALE_TAG, 1.0)
 
 
 class BoneTranslateAndShearKeyframe(SpineData):

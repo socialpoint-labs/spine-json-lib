@@ -1,6 +1,7 @@
 from typing import Dict, Any, List
 
 from spine_json_lib.data.data_types.base_type import SpineData
+from spine_json_lib.utils import get_tags_from_name, SCALE_TAG
 
 
 class Slot(SpineData):
@@ -19,6 +20,10 @@ class Slot(SpineData):
         self.blend = values.get("blend")
 
         super(Slot, self).__init__(values)
+
+    def get_scale_in_name(self) -> float:
+        tags = get_tags_from_name(self.name)
+        return tags.get(SCALE_TAG, 1.0)
 
 
 class SlotKeyframe(SpineData):
