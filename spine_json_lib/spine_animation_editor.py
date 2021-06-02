@@ -235,6 +235,8 @@ class SpineAnimationEditor(object):
                 skin_data = self.spine_anim_data.data.skins[skin]
 
             for part_name in skin_data:
+                slot_data = self.spine_anim_data.data.get_slot(part_name)
+                scale = self.spine_anim_data.data.get_slot_custom_scale(slot=slot_data)
                 for sub_part_key in skin_data[part_name]:
                     skin_sub_part_instance = skin_data[part_name][sub_part_key]
                     if not isinstance(skin_sub_part_instance, SkinPath):
@@ -246,7 +248,8 @@ class SpineAnimationEditor(object):
 
                         image_path = os.path.join(images_folder, relative_path)
                         paths[relative_path] = {"path": image_path}
-
+                        if scale != 1.0:
+                            paths[relative_path]["scale"] = scale
         return paths
 
     def save_images_json(self, images_json):
