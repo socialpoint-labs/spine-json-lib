@@ -1,17 +1,22 @@
 {
     "image_1": {
-        "path": "./images/image_1"
-    }, 
+        "path": "./images/image_1",
+        "scale": 2.0
+    },
     "freepik_copy": {
-        "path": "./images/freepik_copy"
-    }, 
+        "path": "./images/freepik_copy",
+        "scale": 0.5
+    },
     "unnamed": {
-        "path": "./images/unnamed"
-    }, 
+        "path": "./images/unnamed",
+        "scale": 0.001
+    },
     "check_image": {
-        "path": "./images/check_image"
-    }, 
+        "path": "./images/check_image",
+        "scale": 5.0
+    },
     "freepik": {
-        "path": "./images/freepik"
+        "path": "./images/freepik",
+        "scale": 0.001
     }
 }

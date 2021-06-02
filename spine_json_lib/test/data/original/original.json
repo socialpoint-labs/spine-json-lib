@@ -2,29 +2,29 @@
     "animations": {
         "anim1": {
             "bones": {
-                "bone3": {
+                "bone3[scale:5]": {
                     "shear": [
                         {
-                            "y": 0.040000000000000001
+                            "y": 0.04
                         }
                     ]
                 },
-                "master": {
+                "master[scale:0.5]": {
                     "translate": [
                         {
-                            "x": 41.350000000000001,
-                            "y": 7.3499999999999996
+                            "x": 41.35,
+                            "y": 7.35
                         },
                         {
                             "time": 0.5,
-                            "x": 299.58999999999997,
-                            "y": 19.300000000000001
+                            "x": 299.59,
+                            "y": 19.3
                         }
                     ]
                 }
             },
             "slots": {
-                "bone2_slot2": {
+                "bone2_slot2[scale:2]": {
                     "attachment": [
                         {
                             "name": "image_1"
@@ -34,43 +34,53 @@
                 "bone3_slot_check_image": {
                     "attachment": [
                         {
-                            "name": "None"
+                            "name": null
                         }
                     ]
                 }
             }
         },
         "anim2": {
+            "bones": {
+                "bone5[scale:0.02]": {
+                    "rotate": [
+                        {
+                            "angle": 0.04,
+                            "time": 0.7
+                        }
+                    ]
+                }
+            },
             "slots": {
-                "bone2_slot2": {
+                "bone2_slot2[scale:2]": {
                     "attachment": [
                         {
                             "name": "image_1"
                         }
                     ]
                 },
-                "freepik2": {
+                "freepik2[scale:0.1]": {
                     "attachment": [
                         {
-                            "name": "None"
+                            "name": null
                         },
                         {
                             "name": "freepik",
-                            "time": 0.69999999999999996
+                            "time": 0.7
                         }
                     ]
                 },
                 "freepik_copy": {
                     "attachment": [
                         {
-                            "name": "None"
+                            "name": null
                         }
                     ]
                 },
                 "path": {
                     "attachment": [
                         {
-                            "name": "None"
+                            "name": null
                         }
                     ]
                 }
@@ -83,74 +93,74 @@
         },
         {
             "length": 117.83,
-            "name": "master",
+            "name": "master[scale:0.5]",
             "parent": "root",
-            "rotation": -30.050000000000001,
+            "rotation": -30.05,
             "x": -90.5,
             "y": 293
         },
         {
             "name": "bone",
-            "parent": "master"
+            "parent": "master[scale:0.5]"
         },
         {
             "color": "06e7efff",
             "length": 110.98,
             "name": "bone2",
             "parent": "root",
-            "rotation": -32.109999999999999,
+            "rotation": -32.11,
             "x": -116.5,
             "y": 233
         },
         {
             "color": "00ff1cff",
             "length": 102.34,
-            "name": "bone3",
+            "name": "bone3[scale:5]",
             "parent": "root",
-            "rotation": -33.850000000000001,
+            "rotation": -33.85,
             "x": -129.5,
             "y": 175
         },
         {
             "color": "ff8509ff",
             "length": 103,
-            "name": "bone4",
+            "name": "bone4[scale:string]",
             "parent": "root",
-            "rotation": -36.310000000000002,
+            "rotation": -36.31,
             "x": -145.5,
             "y": 118
         },
         {
             "color": "ff0000ff",
             "length": 114.06,
-            "name": "bone5",
-            "parent": "master",
-            "rotation": 2.3599999999999999,
-            "x": 114.73999999999999,
-            "y": -0.64000000000000001
+            "name": "bone5[scale:0.02]",
+            "parent": "master[scale:0.5]",
+            "rotation": 2.36,
+            "x": 114.74,
+            "y": -0.64
         }
     ],
     "skeleton": {
         "audio": "",
-        "hash": "ony8zbgptMQSCbAFnvdEMeg4j74",
-        "height": 568.84000000000003,
-        "images": "./images/",
+        "hash": "snX16+rYPGKxkOts+M2LI4p7QVU",
+        "height": 568.81,
+        "images": "./images",
         "spine": "3.8.59",
-        "width": 860.20000000000005,
-        "x": -151.56,
-        "y": 40.25
+        "width": 860.2,
+        "x": -151.54,
+        "y": 40.23
     },
     "skins": [
         {
             "attachments": {
-                "bone2_slot2": {
+                "bone2_slot2[scale:2]": {
                     "image_1": {
                         "height": 512,
-                        "scaleX": 0.22919999999999999,
-                        "scaleY": 0.22919999999999999,
+                        "scaleX": 0.2292,
+                        "scaleY": 0.2292,
                         "width": 512,
-                        "x": 51.359999999999999,
-                        "y": 4.4100000000000001
+                        "x": 51.36,
+                        "y": 4.41
                     }
                 },
                 "bone3_slot_check_image": {
@@ -187,14 +197,14 @@
                             0
                         ],
                         "vertices": [
-                            170.15000000000001,
-                            -48.149999999999999,
-                            42.219999999999999,
-                            -48.149999999999999,
-                            42.219999999999999,
-                            79.790000000000006,
-                            170.15000000000001,
-                            79.790000000000006
+                            170.15,
+                            -48.15,
+                            42.22,
+                            -48.15,
+                            42.22,
+                            79.79,
+                            170.15,
+                            79.79
                         ],
                         "width": 352
                     }
@@ -202,33 +212,33 @@
                 "freepik_copy": {
                     "freepik_copy": {
                         "height": 150,
-                        "rotation": -2.0699999999999998,
+                        "rotation": -2.07,
                         "width": 150,
-                        "x": 495.75999999999999,
-                        "y": 532.47000000000003
+                        "x": 495.76,
+                        "y": 532.47
                     }
                 },
                 "path": {
                     "path": {
                         "lengths": [
                             1022.86,
-                            2224.8000000000002
+                            2224.8
                         ],
                         "type": "path",
                         "vertexCount": 6,
                         "vertices": [
                             -161.31,
-                            -607.24000000000001,
+                            -607.24,
                             -114.12,
-                            -318.31999999999999,
-                            -83.950000000000003,
+                            -318.32,
+                            -83.95,
                             -114.05,
                             345.56,
-                            179.21000000000001,
-                            737.38999999999999,
-                            128.50999999999999,
-                            1027.8399999999999,
-                            90.319999999999993
+                            179.21,
+                            737.39,
+                            128.51,
+                            1027.84,
+                            90.32
                         ]
                     }
                 }
@@ -237,20 +247,20 @@
         },
         {
             "attachments": {
-                "freepik2": {
+                "freepik2[scale:0.1]": {
                     "freepik": {
                         "height": 300,
-                        "rotation": 27.699999999999999,
+                        "rotation": 27.7,
                         "width": 300,
-                        "x": 417.30000000000001,
+                        "x": 417.3,
                         "y": 174.94
                     },
                     "unnamed": {
                         "height": 300,
-                        "rotation": 27.690000000000001,
+                        "rotation": 27.69,
                         "width": 300,
                         "x": 150.44,
-                        "y": 38.289999999999999
+                        "y": 38.29
                     }
                 }
             },
@@ -258,20 +268,20 @@
         },
         {
             "attachments": {
-                "freepik2": {
+                "freepik2[scale:0.1]": {
                     "freepik": {
                         "height": 300,
-                        "rotation": 27.699999999999999,
+                        "rotation": 27.7,
                         "width": 300,
-                        "x": 147.40000000000001,
-                        "y": 33.310000000000002
+                        "x": 147.4,
+                        "y": 33.31
                     },
                     "unnamed": {
                         "height": 300,
-                        "rotation": -152.21000000000001,
+                        "rotation": -152.21,
                         "width": 300,
                         "x": 150.44,
-                        "y": 38.289999999999999
+                        "y": 38.29
                     }
                 }
             },
@@ -281,26 +291,26 @@
     "slots": [
         {
             "attachment": "unnamed",
-            "bone": "bone5",
-            "name": "freepik2"
+            "bone": "bone5[scale:0.02]",
+            "name": "freepik2[scale:0.1]"
         },
         {
-            "bone": "master",
+            "bone": "master[scale:0.5]",
             "name": "freepik"
         },
         {
             "attachment": "check_image",
-            "bone": "bone3",
+            "bone": "bone3[scale:5]",
             "name": "bone3_slot_check_image"
         },
         {
-            "bone": "bone4",
+            "bone": "bone4[scale:string]",
             "name": "empty"
         },
         {
             "attachment": "image_1",
             "bone": "bone2",
-            "name": "bone2_slot2"
+            "name": "bone2_slot2[scale:2]"
         },
         {
             "bone": "bone2",
@@ -308,7 +318,7 @@
         },
         {
             "attachment": "path",
-            "bone": "bone5",
+            "bone": "bone5[scale:0.02]",
             "name": "path"
         },
         {
