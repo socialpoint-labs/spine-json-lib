@@ -7,9 +7,9 @@ from deepdiff import DeepDiff
 @pytest.mark.parametrize(
     "tag_name, result",
     [
-        ("master[scale:0.5]", {"scale": 0.5}),
+        ("master[scale : 0.5]", {"scale": 0.5}),
         ("master[ scale:0.5 ]", {"scale": 0.5}),
-        ("master[scale:0.5]", {"scale": 0.5}),
+        ("master[ scale : 0.5 ]", {"scale": 0.5}),
         ("master[scale:0.5", {}),
         ("masterscale:0.5]", {}),
         ("master[scale0.5]", {}),
