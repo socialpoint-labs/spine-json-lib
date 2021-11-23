@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.2 (2021-11-23)
+### Fix
+* Use Production/Stable in development status ([`308f712`](https://github.com/socialpoint-labs/spine-json-lib/commit/308f7123f2e6b1bdc74192a4afd4a3f67c6d7ac9))
+
 ## v0.4.1 (2021-11-23)
 ### Fix
 * Semantic releases fixed to a hash to avoid undesired updates ([`a36f563`](https://github.com/socialpoint-labs/spine-json-lib/commit/a36f56376c0a915ea9d38ceddf74a374bdb4b79e))
