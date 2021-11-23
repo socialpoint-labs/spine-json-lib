@@ -6,7 +6,7 @@ from spine_json_lib.data.data_types.base_type import SpineData
 
 
 class DrawOrderTimelineOffset(SpineData):
-    DEFAULT_VALUES: Dict[str, Any] = {"slot": "", "offset": 0}
+    DEFAULT_VALUES: Dict[str, Any] = {"slot": ""}
     SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = DEFAULT_VALUES
 
     def __init__(self, values=None):
