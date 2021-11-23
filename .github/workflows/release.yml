@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 0
       - name: Python Semantic Release
         if: github.repository == 'socialpoint-labs/spine-json-lib'
-        uses: relekang/python-semantic-release@master
+        uses: relekang/python-semantic-release@3c97d933e06d3ac719d3df79843ba068b3e95c52
         with:
           pypi_username: __token__
           pypi_password: ${{ secrets.pypi_password }}
