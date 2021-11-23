@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.0 (2021-11-23)
+### Feature
+* Force checking for required attributes ([`430f739`](https://github.com/socialpoint-labs/spine-json-lib/commit/430f73935fb75f64b8710222c59adc191a567ab9))
+
+### Fix
+* Remove default offset of 0 in draworders ([`b4b51f1`](https://github.com/socialpoint-labs/spine-json-lib/commit/b4b51f1006d1112173a1f5332bc9f24ee49e8090))
+
 ## v0.3.1 (2021-09-15)
 ### Fix
 * Remove travis config file ([`f6a2f31`](https://github.com/socialpoint-labs/spine-json-lib/commit/f6a2f310b5679fd9c0a7131c3c31e0ea887e6525))
