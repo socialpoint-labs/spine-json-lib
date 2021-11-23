@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.1 (2021-11-23)
+### Fix
+* Semantic releases fixed to a hash to avoid undesired updates ([`a36f563`](https://github.com/socialpoint-labs/spine-json-lib/commit/a36f56376c0a915ea9d38ceddf74a374bdb4b79e))
+
 ## v0.4.0 (2021-11-23)
 ### Feature
 * Force checking for required attributes ([`430f739`](https://github.com/socialpoint-labs/spine-json-lib/commit/430f73935fb75f64b8710222c59adc191a567ab9))
