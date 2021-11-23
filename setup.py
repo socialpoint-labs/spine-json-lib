@@ -39,7 +39,7 @@ setup(
     author_email="yisus.gamedev@gmail.com",
     python_requires=">=3.6",
     classifiers=[
-        "Development Status :: Released",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
