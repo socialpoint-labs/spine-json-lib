@@ -21,6 +21,9 @@ class SpineData(object):
     # Attributes wont be serialized to json if they are equal to SPINE_3_8_DEFAULT_VALUES[attrib_name]
     SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = None
 
+    # We should override this on inherited classes to include fields that are required
+    REQUIRED: List[str] = []
+
     def __new__(cls, *args, **kwargs):
         if cls.DEFAULT_VALUES is None:
             raise NotImplementedError(
@@ -49,6 +52,13 @@ class SpineData(object):
                     missing_attributes, self.__class__
                 )
             )
+
+        missing_required_attrs = set(self.REQUIRED).difference(set(values.keys()))
+        if missing_required_attrs:
+            raise SpineParsingException(
+                message=f"Internal Error: missing required attributes {missing_required_attrs} "
+                        f"in {self.__class__}. Talk with product owner to add support to this spine feature"
+                )
 
     def get(self, name, default=None):
         if hasattr(self, name) and self.__getattribute__(name) is not None:

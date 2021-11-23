@@ -3,6 +3,7 @@ import os
 import pytest
 import json
 
+from spine_json_lib.data.spine_exceptions import SpineParsingException
 from spine_json_lib.spine_animation_editor import SpineAnimationEditor
 from deepdiff import DeepDiff
 from typing import Any
@@ -210,3 +211,18 @@ class TestSpineAnimationEditor:
             imgs_refs_expected = json.load(f)
 
         assert DeepDiff(animation_editor.images_references, imgs_refs_expected) == {}
+
+    def test_missing_required_offsets_attr(self):
+        with open(SPINE_JSON_ERASE_SKIN_PATH) as f:
+            spine_json_data = json.load(f)
+
+        # Remove a required attribute
+        spine_json_data["animations"]["special1"]["drawOrder"][0]["offsets"][0].pop(
+            "offset"
+        )
+
+        with pytest.raises(SpineParsingException) as excinfo:
+            SpineAnimationEditor(json_data=spine_json_data)
+        assert "missing required attributes {'offset'}" in str(
+            excinfo.value
+        )
