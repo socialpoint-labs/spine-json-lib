@@ -9,6 +9,8 @@ class DrawOrderTimelineOffset(SpineData):
     DEFAULT_VALUES: Dict[str, Any] = {"slot": ""}
     SPINE_3_8_DEFAULT_VALUES: Dict[str, Any] = DEFAULT_VALUES
 
+    REQUIRED: List[str] = ["offset"]
+
     def __init__(self, values=None):
         values = values or {}
 
