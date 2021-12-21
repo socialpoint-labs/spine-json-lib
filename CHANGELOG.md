@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.3 (2021-12-21)
+### Fix
+* Add which id its colliding to UNIQUE_ID_ERROR ([`1af1785`](https://github.com/socialpoint-labs/spine-json-lib/commit/1af17853d427a9c10fed8fe7a513ac24c75ffb85))
+
 ## v0.4.2 (2021-11-23)
 ### Fix
 * Use Production/Stable in development status ([`308f712`](https://github.com/socialpoint-labs/spine-json-lib/commit/308f7123f2e6b1bdc74192a4afd4a3f67c6d7ac9))
