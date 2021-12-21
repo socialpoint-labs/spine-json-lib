@@ -91,7 +91,7 @@ class TestGraph:
 
         with pytest.raises(ValueError) as excinfo:
             graph.add_node(node_id=DEFAULT_ID, node_data=None)
-        assert UNIQUE_ID_ERROR_MESSAGE in str(excinfo.value)
+        assert UNIQUE_ID_ERROR_MESSAGE.format(DEFAULT_ID) in str(excinfo.value)
 
         graph.add_node(node_id="1", node_data=None)
         NUM_NODES = 1000
@@ -104,7 +104,7 @@ class TestGraph:
 
             with pytest.raises(ValueError) as excinfo:
                 graph.add_node(node_id=id_, node_data=None)
-            assert UNIQUE_ID_ERROR_MESSAGE in str(excinfo.value)
+            assert UNIQUE_ID_ERROR_MESSAGE.format(id_) in str(excinfo.value)
 
             with pytest.raises(TypeError) as excinfo:
                 graph.add_node(node_id=0)
