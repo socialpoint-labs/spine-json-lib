@@ -14,7 +14,7 @@ from spine_json_lib.graph.graph_validator import GraphValidator
 from spine_json_lib.graph.spamnode import DEFAULT_NODE_TYPE
 from spine_json_lib.graph.spamnode import SpamNode
 
-UNIQUE_ID_ERROR_MESSAGE = "The id of the node needs to be unique"
+UNIQUE_ID_ERROR_MESSAGE = "Multiples nodes with ID = {} where found, but ids need to be unique"
 GRAPH_PARSER_WRONG_TYPE = "graph_parser param needs to implement IGraphFactory"
 WRONG_NODE_ID_TYPE = "Only string type allowed for node_id param"
 ID_NODE_NOT_FOUND = "Node with ID = {} was not found in the graph"
@@ -76,7 +76,7 @@ class DAGraph(object):
             if not isinstance(node_id, str):
                 raise TypeError(WRONG_NODE_ID_TYPE)
             if node_id in self._nodes.keys():
-                raise ValueError(UNIQUE_ID_ERROR_MESSAGE)
+                raise ValueError(UNIQUE_ID_ERROR_MESSAGE.format(node_id))
             _id_node = node_id
 
         new_node = self.nodes_factory.create_node(
