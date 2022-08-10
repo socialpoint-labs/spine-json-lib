@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.4 (2022-08-10)
+### Fix
+* Avoid removing SkinMeshes if parent slots are visible ([`9b4aa66`](https://github.com/socialpoint-labs/spine-json-lib/commit/9b4aa6637378e7eea6343ef00ac531306dd13829))
+
 ## v0.4.3 (2021-12-21)
 ### Fix
 * Add which id its colliding to UNIQUE_ID_ERROR ([`1af1785`](https://github.com/socialpoint-labs/spine-json-lib/commit/1af17853d427a9c10fed8fe7a513ac24c75ffb85))
