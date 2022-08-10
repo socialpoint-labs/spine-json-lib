@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.5 (2022-08-10)
+### Fix
+* Update python semantic release to a newer version ([`f74b30e`](https://github.com/socialpoint-labs/spine-json-lib/commit/f74b30e78837573c60e863b6a05bd98457d9ef8e))
+
 ## v0.4.4 (2022-08-10)
 ### Fix
 * Avoid removing SkinMeshes if parent slots are visible ([`9b4aa66`](https://github.com/socialpoint-labs/spine-json-lib/commit/9b4aa6637378e7eea6343ef00ac531306dd13829))
