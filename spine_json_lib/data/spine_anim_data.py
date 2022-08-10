@@ -298,6 +298,8 @@ class SpineAnimationData(SpineData):
                 (lambda x, y: x | y), anim_used_attachments.values()
             )
 
+        invisible_slots = slots_set - visible_slots
+
         attachments_to_remove: FrozenSet[Any] = frozenset([])
 
         # Only not visible slots and the ones not being used can be erased
@@ -307,7 +309,12 @@ class SpineAnimationData(SpineData):
 
                 for attachment_id in attachments_ids:
                     if attachment_id not in l_attachments_used:
+                        # Avoid removing skinmeshes if parent slot is visible...
+                        if (
+                            isinstance(attachment_data[attachment_id], SkinMesh)
+                            and slot_id not in invisible_slots
+                        ):
+                            continue
                         attachments_to_remove |= frozenset([attachment_id])
 
-        invisible_slots = slots_set - visible_slots
         return invisible_slots, attachments_to_remove
