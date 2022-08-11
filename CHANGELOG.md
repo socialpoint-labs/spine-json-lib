@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.6 (2022-08-11)
+### Fix
+* Change old pypi parameters with new ones ([`2ffe981`](https://github.com/socialpoint-labs/spine-json-lib/commit/2ffe9819af607a4a1ae108bcd5ce1550f1c7ef99))
+
 ## v0.4.5 (2022-08-10)
 ### Fix
 * Update python semantic release to a newer version ([`f74b30e`](https://github.com/socialpoint-labs/spine-json-lib/commit/f74b30e78837573c60e863b6a05bd98457d9ef8e))
